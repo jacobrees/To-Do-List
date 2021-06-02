@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-$black: #69665C;
-$grey: #B2AFA1;
-$yellow: #FFF9DE;
-$white: #FFFFFF;
-$blue: #D1E5F7;
-$green: #DAF2D6;
-$red: #FFCECE;
-$purple: #D2CEFF;
+$black: #69665c;
+$grey: #b2afa1;
+$yellow: #fff9de;
+$white: #fff;
+$blue: #d1e5f7;
+$green: #daf2d6;
+$red: #ffcece;
+$purple: #d2ceff;
 
 * {
   margin: 0;
@@ -18,15 +18,32 @@ $purple: #D2CEFF;
 /* XL devices (default) */
 
 .app-container {
-  width: 100%;
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
 }
 
 .navbar {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-logo {
   color: $black;
+  font-size: 34px;
+}
+
+.add-todo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-todo-btn-svg {
+  fill: $black;
+  width: 32px;
+  height: 32px;
 }
 
 /* Large devices */
