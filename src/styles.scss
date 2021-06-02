@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+$black: #69665C;
+$grey: #B2AFA1;
+$yellow: #FFF9DE;
+$white: #FFFFFF;
+$blue: #D1E5F7;
+$green: #DAF2D6;
+$red: #FFCECE;
+$purple: #D2CEFF;
 
 * {
   margin: 0;
@@ -9,7 +17,17 @@
 
 /* XL devices (default) */
 
-/* ...code... */
+.app-container {
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.nav-logo {
+  color: $black;
+}
 
 /* Large devices */
 @media only screen and (max-width: 1199.98px) {
