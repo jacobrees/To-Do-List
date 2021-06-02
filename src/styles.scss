@@ -18,8 +18,8 @@ $purple: #d2ceff;
 /* XL devices (default) */
 
 .app-container {
-  width: 90%;
-  max-width: 1000px;
+  width: 92%;
+  max-width: 1200px;
   margin: 20px auto;
 }
 
@@ -32,6 +32,7 @@ $purple: #d2ceff;
 .nav-logo {
   color: $black;
   font-size: 34px;
+  font-weight: 500;
 }
 
 .add-todo-btn {
