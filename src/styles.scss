@@ -72,6 +72,7 @@ $purple: #d2ceff;
   margin-left: 10px;
   font-size: 15px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .dot1 {
@@ -102,5 +103,18 @@ $purple: #d2ceff;
 
 /* Small devices */
 @media only screen and (max-width: 767.98px) {
-  /* ...code... */
+  .navbar {
+    margin-bottom: 25px;
+  }
+
+  .categories-container {
+    width: 100%;
+    overflow-x: auto;
+    height: auto;
+    display: flex;
+  }
+
+  .category-title {
+    margin-right: 10px;
+  }
 }
