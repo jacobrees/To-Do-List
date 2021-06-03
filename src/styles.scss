@@ -21,12 +21,14 @@ $purple: #d2ceff;
   width: 92%;
   max-width: 1100px;
   margin: 20px auto;
+  height: 100vh;
 }
 
 .navbar {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 55px;
 }
 
 .nav-logo {
@@ -45,6 +47,47 @@ $purple: #d2ceff;
   fill: $black;
   width: 32px;
   height: 32px;
+}
+
+.categories-container {
+  width: 200px;
+  height: 100px;
+}
+
+.category {
+  margin: 25px auto;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.category-title {
+  color: $black;
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.dot1 {
+  background-color: $purple;
+}
+
+.dot2 {
+  background-color: $blue;
+}
+
+.dot3 {
+  background-color: $red;
+}
+
+.dot4 {
+  background-color: $green;
 }
 
 /* Large devices */
