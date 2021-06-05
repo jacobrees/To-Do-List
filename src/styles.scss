@@ -19,7 +19,7 @@ $purple: #d2ceff;
 
 .app-container {
   width: 92%;
-  max-width: 1050px;
+  max-width: 1150px;
   margin: 20px auto;
   height: 100vh;
 }
@@ -111,10 +111,36 @@ $purple: #d2ceff;
 
 .todo {
   background-color: $yellow;
-  height: 200px;
   width: 95%;
   margin: 0 auto 20px;
-  border-radius: 10px;
+  border-radius: 3px;
+}
+
+.todo-content {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.todo-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-title {
+  color: $black;
+}
+
+.todo-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  fill: $black;
+}
+
+.todo-meatball {
+  width: 30px;
+  height: 19px;
 }
 
 /* Large devices */
