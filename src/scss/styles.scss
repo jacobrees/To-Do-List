@@ -116,6 +116,10 @@ $purple: #d2ceff;
   background-color: $green;
 }
 
+.arrow-btn {
+  display: none;
+}
+
 .todos-container {
   width: 100%;
   display: grid;
@@ -202,12 +206,41 @@ $purple: #d2ceff;
     top: 50px;
     background-color: $white;
     z-index: 11;
+    padding: 0 30px;
   }
 
   .category {
     margin: 37px auto;
     display: flex;
     align-items: center;
+  }
+
+  .arrow-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background: $white;
+    position: fixed;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .left-arrow-btn {
+    top: 85px;
+    left: 7px;
+    transform: rotate(180deg);
+  }
+
+  .right-arrow-btn {
+    top: 85px;
+    right: 7px;
+  }
+  
+  .arrow {
+    width: 24px;
+    height: 24px;
+    fill: $black;
   }
 
   .category-title {
