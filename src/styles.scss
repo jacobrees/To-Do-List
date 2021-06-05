@@ -67,12 +67,19 @@ $purple: #d2ceff;
   align-items: center;
 }
 
+.category-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
 .category-title {
   color: $black;
   margin-left: 10px;
   font-size: 15px;
   font-weight: 500;
-  cursor: pointer;
 }
 
 .dot {
