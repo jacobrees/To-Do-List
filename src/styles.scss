@@ -114,6 +114,7 @@ $purple: #d2ceff;
   width: 95%;
   margin: 0 auto 20px;
   border-radius: 3px;
+  height: auto;
 }
 
 .todo-content {
@@ -141,6 +142,11 @@ $purple: #d2ceff;
 .todo-meatball {
   width: 30px;
   height: 19px;
+}
+
+.todo-paragraph {
+  margin: 15px 0;
+  color: $black;
 }
 
 /* Large devices */
