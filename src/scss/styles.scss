@@ -20,16 +20,20 @@ $purple: #d2ceff;
 .app-container {
   width: 92%;
   max-width: 1150px;
-  margin: 20px auto;
-  height: 100vh;
+  margin: 90px auto;
 }
 
 .navbar {
-  width: 100%;
+  width: 92vw;
+  max-width: 1150px;
   display: flex;
   justify-content: space-between;
   padding: 10px 0 20px;
   margin-bottom: 35px;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 10;
 }
 
 .nav-logo {
@@ -59,6 +63,9 @@ $purple: #d2ceff;
   max-width: 250px;
   width: auto;
   height: auto;
+  position: sticky;
+  top: 90px;
+  align-self: flex-start;
 }
 
 .category {
@@ -177,9 +184,8 @@ $purple: #d2ceff;
 
 /* Small devices */
 @media only screen and (max-width: 767.98px) {
-  .navbar {
-    margin-bottom: 5px;
-    padding: 0;
+  .app-container {
+    margin-top: 160px;
   }
 
   .main-container {
@@ -187,11 +193,15 @@ $purple: #d2ceff;
   }
 
   .categories-container {
-    min-width: 100%;
+    width: 92%;
     overflow-x: auto;
     height: auto;
     display: flex;
     max-width: none;
+    position: fixed;
+    top: 50px;
+    background-color: $white;
+    z-index: 11;
   }
 
   .category {
