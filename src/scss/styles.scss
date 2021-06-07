@@ -117,9 +117,13 @@ $purple: #d2ceff;
 }
 
 .option {
-  margin-bottom: 24px;
+  margin-bottom: 25px;
   display: flex;
   align-items: center;
+}
+
+.option:nth-last-of-type(2){
+  margin-top: 40px;
 }
 
 .options-btn {
