@@ -116,6 +116,33 @@ $purple: #d2ceff;
   background-color: $green;
 }
 
+.option {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.options-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.options-title {
+  color: $black;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.options-svg {
+  height: 24px;
+  width: 24px;
+  fill: $black;
+}
+
 .arrow-btn {
   display: none;
 }
