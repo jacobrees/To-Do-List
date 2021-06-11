@@ -7,6 +7,7 @@ $blue: #d1e5f7;
 $green: #daf2d6;
 $red: #ffcece;
 $purple: #d2ceff;
+$fade: all 0.25s ease-in-out;
 
 * {
   margin: 0;
@@ -179,6 +180,14 @@ $purple: #d2ceff;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  pointer-events: none;
+  opacity: 0;
+  transition: $fade;
+}
+
+.show-todo-options {
+  pointer-events: all;
+  opacity: 1;
 }
 
 .todo-options-btn {
