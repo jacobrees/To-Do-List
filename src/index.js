@@ -9,7 +9,7 @@ todoMenuBtns.forEach((todoMenuBtn) => {
     if ([].slice.apply(todoOptions.classList).includes('show-todo-options')) {
       todoOptions.classList.remove('show-todo-options');
     } else {
-      const allTodoOptions = todoMenuBtns.forEach((todoOptions) => {
+      todoMenuBtns.forEach((todoOptions) => {
         todoOptions.parentElement.parentElement.parentElement.childNodes[3].classList.remove('show-todo-options');
       });
       todoOptions.classList.toggle('show-todo-options');
