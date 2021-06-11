@@ -164,6 +164,31 @@ $purple: #d2ceff;
   margin: 0 auto 20px;
   border-radius: 3px;
   height: auto;
+  position: relative;
+}
+
+.todo-options {
+  width: 140px;
+  height: 75px;
+  border: 1px solid $grey;
+  background-color: $white;
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-options-btn {
+  height: 50%;
+  border: none;
+  background: none;
+  border-bottom: 1px solid $grey;
+  cursor: pointer;
+  color: $black;
+  text-align: start;
+  padding-left: 20px;
 }
 
 .todo-content {
