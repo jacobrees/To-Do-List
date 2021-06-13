@@ -16,3 +16,12 @@ todoMenuBtns.forEach((todoMenuBtn) => {
     }
   });
 });
+
+const addTodoMenuBtns = document.querySelectorAll('.add-todo-btn, .cancel-add-new-todo-button');
+const addNewTodoMenu = document.querySelector('.add-new-todo-container');
+
+addTodoMenuBtns.forEach((addTodoMenuBtn) => {
+  addTodoMenuBtn.addEventListener('click', () => {
+    addNewTodoMenu.classList.toggle('show-add-new-todo');
+  });
+});

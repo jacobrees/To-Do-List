@@ -249,10 +249,16 @@ $fade: all 0.25s ease-in;
   width: 100%;
   height: 100%;
   background-color: $black-see-through;
-  opacity: 1;
+  opacity: 0;
   z-index: 20;
-  pointer-events: all;
+  pointer-events: none;
   overflow-y: scroll;
+  transition: $fade;
+}
+
+.show-add-new-todo {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .add-new-todo-box {
@@ -264,15 +270,10 @@ $fade: all 0.25s ease-in;
   z-index: 20;
   border: 1px solid $grey;
   box-shadow: 0 5px 15px -7px $black;
-  margin: 90px auto 0;
+  margin: 90px auto 90px;
   display: flex;
   flex-direction: column;
   padding: 40px 50px;
-}
-
-.show-add-new-todo {
-  opacity: 1;
-  pointer-events: all;
 }
 
 .add-new-todo-buttons-container {
