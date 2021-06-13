@@ -323,18 +323,6 @@ $fade: all 0.25s ease-in;
   height: 100px;
 }
 
-#add-todo-category {
-  border: none;
-  background-color: $light-grey;
-  padding: 12px;
-  border-radius: 5px;
-  color: $black;
-
-  option:first-child {
-    display: none;
-  }
-}
-
 /* Large devices */
 @media only screen and (max-width: 1199.98px) {
   /* ...code... */
