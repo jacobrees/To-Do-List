@@ -2,6 +2,7 @@
 $black: #69665c;
 $black-see-through: #69665c60;
 $grey: #b2afa1;
+$light-grey: #f1f1f1;
 $yellow: #fdf9de;
 $white: #fff;
 $blue: #d1e5f7;
@@ -265,6 +266,9 @@ $fade: all 0.25s ease-in;
   border: 1px solid $grey;
   box-shadow: 0 5px 15px -7px $black;
   margin: 90px auto 0;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 50px;
 }
 
 .show-add-new-todo {
@@ -276,7 +280,6 @@ $fade: all 0.25s ease-in;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 40px 50px;
 }
 
 .add-new-todo-buttons {
@@ -299,6 +302,25 @@ $fade: all 0.25s ease-in;
   font-weight: bold;
   font-size: 14px;
   color: $white;
+}
+
+.todo-input-label {
+  font-weight: bold;
+  color: $black;
+  font-size: 18px;
+  margin: 22px 0 7px;
+}
+
+.todo-input {
+  border: none;
+  background-color: $light-grey;
+  padding: 12px;
+  border-radius: 5px;
+  color: $black;
+}
+
+#add-todo-description {
+  height: 100px;
 }
 
 /* Large devices */
