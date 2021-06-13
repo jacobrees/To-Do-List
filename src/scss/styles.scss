@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 $black: #69665c;
+$black-see-through: #69665c60;
 $grey: #b2afa1;
 $yellow: #fdf9de;
 $white: #fff;
@@ -238,6 +239,66 @@ $fade: all 0.25s ease-in;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.add-new-todo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 1;
+  z-index: 20;
+  pointer-events: all;
+  overflow-y: scroll;
+}
+
+.add-new-todo-box {
+  width: 100%;
+  height: 100%;
+  max-width: 650px;
+  max-height: 400px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 0;
+}
+
+.show-add-new-todo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.add-new-todo-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 50px;
+}
+
+.add-new-todo-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cancel-add-new-todo-button {
+  text-align: start;
+  background: none;
+  color: $black;
+  font-size: 15px;
+}
+
+.add-add-new-todo-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
 }
 
 /* Large devices */
