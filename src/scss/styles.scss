@@ -323,6 +323,23 @@ $fade: all 0.25s ease-in;
   height: 100px;
 }
 
+.add-todo-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.category-option {
+  margin: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.active-category {
+  background-color: $light-grey;
+}
+
 /* Large devices */
 @media only screen and (max-width: 1199.98px) {
   /* ...code... */
@@ -425,4 +442,12 @@ $fade: all 0.25s ease-in;
   .category-title {
     margin-right: 10px;
   }
+
+  .add-todo-categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 10px 0;
+  }  
 }
