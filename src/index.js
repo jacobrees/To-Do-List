@@ -25,3 +25,12 @@ addTodoMenuBtns.forEach((addTodoMenuBtn) => {
     addNewTodoMenu.classList.toggle('show-add-new-todo');
   });
 });
+
+const editTodoMenuBtns = document.querySelectorAll('.todo-edit-btn, .cancel-edit-existing-todo-button');
+const editExistingTodoMenu = document.querySelector('.edit-existing-todo-container');
+
+editTodoMenuBtns.forEach((editTodoMenuBtn) => {
+  editTodoMenuBtn.addEventListener('click', () => {
+    editExistingTodoMenu.classList.toggle('show-edit-existing-todo');
+  });
+});
