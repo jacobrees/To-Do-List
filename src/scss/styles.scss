@@ -468,6 +468,15 @@ $fade: all 0.25s ease-in;
   color: $white;
 }
 
+.delete-todo-text {
+  color: $black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 10px;
+}
+
 /* Large devices */
 @media only screen and (max-width: 1199.98px) {
   /* ...code... */
@@ -590,6 +599,10 @@ $fade: all 0.25s ease-in;
     min-width: 100%;
     margin: 0;
     border-radius: 0;
+    padding: 10px 15px;
+  }
+
+  .delete-todo-popup-box {
     padding: 10px 15px;
   }
 }
