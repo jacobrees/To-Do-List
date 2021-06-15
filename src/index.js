@@ -34,3 +34,12 @@ editTodoMenuBtns.forEach((editTodoMenuBtn) => {
     editExistingTodoMenu.classList.toggle('show-edit-existing-todo');
   });
 });
+
+const deleteTodoMenuBtns = document.querySelectorAll('.todo-delete-btn, .cancel-delete-todo-button');
+const deleteTodoMenu = document.querySelector('.delete-todo-popup-container');
+
+deleteTodoMenuBtns.forEach((deleteTodoMenuBtn) => {
+  deleteTodoMenuBtn.addEventListener('click', () => {
+    deleteTodoMenu.classList.toggle('show-delete-todo-popup');
+  });
+});
