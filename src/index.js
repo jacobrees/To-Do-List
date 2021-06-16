@@ -52,3 +52,12 @@ deleteAllTodoMenuBtns.forEach((deleteAllTodoMenuBtn) => {
     deleteAllTodoMenu.classList.toggle('show-delete-all-todo-popup');
   });
 });
+
+const editCategoriesMenuBtns = document.querySelectorAll('.edit-categories-btn, .cancel-edit-categories-button');
+const editCategoriesMenu = document.querySelector('.edit-categories-container');
+
+editCategoriesMenuBtns.forEach((editCategoriesMenuBtn) => {
+  editCategoriesMenuBtn.addEventListener('click', () => {
+    editCategoriesMenu.classList.toggle('show-edit-categories');
+  });
+});

@@ -550,6 +550,85 @@ $fade: all 0.25s ease-in;
   text-align: center;
 }
 
+.edit-categories-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow-y: scroll;
+  transition: $fade;
+}
+
+.show-edit-categories {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.edit-categories-box {
+  width: 100%;
+  height: auto;
+  max-width: 650px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  padding: 40px 50px;
+}
+
+.edit-categories-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-categories-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cancel-edit-categories-button {
+  text-align: start;
+  background: none;
+  color: $black;
+  font-size: 15px;
+}
+
+.add-category-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
+}
+
+.edit-categories-title {
+  font-weight: bold;
+  color: $black;
+  font-size: 24px;
+  margin: 22px 0;
+}
+
+
+
+.edit-category {
+  margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+}
+
 /* Large devices */
 @media only screen and (max-width: 1199.98px) {
   /* ...code... */
@@ -680,6 +759,14 @@ $fade: all 0.25s ease-in;
   }
 
   .delete-all-todo-popup-box {
+    padding: 10px 15px;
+  }
+
+  .edit-categories-box {
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+    border-radius: 0;
     padding: 10px 15px;
   }
 }
