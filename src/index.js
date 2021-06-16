@@ -43,3 +43,12 @@ deleteTodoMenuBtns.forEach((deleteTodoMenuBtn) => {
     deleteTodoMenu.classList.toggle('show-delete-todo-popup');
   });
 });
+
+const deleteAllTodoMenuBtns = document.querySelectorAll('.delete-all-done-todos-btn, .cancel-delete-all-todo-button');
+const deleteAllTodoMenu = document.querySelector('.delete-all-todo-popup-container');
+
+deleteAllTodoMenuBtns.forEach((deleteAllTodoMenuBtn) => {
+  deleteAllTodoMenuBtn.addEventListener('click', () => {
+    deleteAllTodoMenu.classList.toggle('show-delete-all-todo-popup');
+  });
+});
