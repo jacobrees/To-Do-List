@@ -572,7 +572,7 @@ $fade: all 0.25s ease-in;
 .edit-categories-box {
   width: 100%;
   height: auto;
-  max-width: 650px;
+  max-width: 400px;
   background-color: $white;
   border-radius: 15px;
   z-index: 20;
@@ -623,6 +623,14 @@ $fade: all 0.25s ease-in;
 
 .edit-category {
   margin: 0 0 20px;
+  padding-bottom: 4px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $grey;
+  width: 100%;
+}
+
+.edit-category-container {
   display: flex;
   align-items: center;
 }
