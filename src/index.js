@@ -62,6 +62,15 @@ editCategoriesMenuBtns.forEach((editCategoriesMenuBtn) => {
   });
 });
 
+const deleteCategoryMenuBtns = document.querySelectorAll('.delete-category-btn, .cancel-delete-category-button');
+const deleteCategoryMenu = document.querySelector('.delete-category-popup-container');
+
+deleteCategoryMenuBtns.forEach((deleteCategoryMenuBtn) => {
+  deleteCategoryMenuBtn.addEventListener('click', () => {
+    deleteCategoryMenu.classList.toggle('show-delete-category-popup');
+  });
+});
+
 const addCategoryMenuBtns = document.querySelectorAll('.add-category-button, .cancel-add-category-button');
 const addCategoryMenu = document.querySelector('.add-category-popup-container');
 
