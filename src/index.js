@@ -79,3 +79,14 @@ addCategoryMenuBtns.forEach((addCategoryMenuBtn) => {
     addCategoryMenu.classList.toggle('show-add-category-popup');
   });
 });
+
+const carousel = document.querySelector('.categories-container');
+const Flickity = require('flickity');
+
+const flkty = new Flickity(carousel, { // eslint-disable-line
+  freeScroll: true,
+  watchCSS: true,
+  cellAlign: 'left',
+  prevNextButtons: false,
+  pageDots: false,
+});
