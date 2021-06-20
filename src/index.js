@@ -84,6 +84,7 @@ const carousel = document.querySelector('.categories-container');
 const Flickity = require('flickity');
 
 const flkty = new Flickity(carousel, { // eslint-disable-line
+  contain: true,
   freeScroll: true,
   watchCSS: true,
   cellAlign: 'left',
