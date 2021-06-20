@@ -6,7 +6,7 @@ const todoMenuBtns = document.querySelectorAll('.todo-menu-btn');
 todoMenuBtns.forEach((todoMenuBtn) => {
   todoMenuBtn.addEventListener('click', (e) => {
     const todoOptions = e.currentTarget.parentElement.parentElement.parentElement.childNodes[3];
-    if ([].slice.apply(todoOptions.classList).includes('show-todo-options')) {
+    if (todoOptions.classList.contains('show-todo-options')) {
       todoOptions.classList.remove('show-todo-options');
     } else {
       todoMenuBtns.forEach((todoOptions) => {
