@@ -82,10 +82,10 @@ addCategoryMenuBtns.forEach((addCategoryMenuBtn) => {
 
 const carousel = document.querySelector('.categories-container');
 const flkty = new Flickity(carousel, { // eslint-disable-line
-  contain: true,
+  contain: false,
   freeScroll: true,
   watchCSS: true,
-  cellAlign: 'left',
-  prevNextButtons: false,
+  cellAlign: 'center',
+  prevNextButtons: true,
   pageDots: false,
 });
