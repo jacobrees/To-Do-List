@@ -823,7 +823,7 @@ $fade: all 0.25s ease-in;
     top: 50px;
     background-color: $white;
     z-index: 11;
-    padding: 0 34px;
+    padding: 0;
 
     &::after {
       content: 'flickity';
