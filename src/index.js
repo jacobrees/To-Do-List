@@ -90,7 +90,7 @@ const flkty = new Flickity(carousel, { // eslint-disable-line
   pageDots: false,
 });
 
-const categoryBtns = document.querySelectorAll('.category-btn');
+const categoryBtns = document.querySelectorAll('.category-btn-sort');
 
 categoryBtns.forEach(((categoryBtn) => {
   categoryBtn.addEventListener('click', (e) => {
