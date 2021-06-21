@@ -94,6 +94,7 @@ $fade: all 0.25s ease-in;
   background: none;
   padding: 4px 10px;
   border-radius: 20px;
+  transition: $fade;
 }
 
 .category-title {

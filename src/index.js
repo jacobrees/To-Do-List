@@ -89,3 +89,16 @@ const flkty = new Flickity(carousel, { // eslint-disable-line
   prevNextButtons: true,
   pageDots: false,
 });
+
+const categoryBtns = document.querySelectorAll('.category-btn');
+
+categoryBtns.forEach(((categoryBtn) => {
+  categoryBtn.addEventListener('click', (e) => {
+    if (!e.currentTarget.classList.contains('active-category')) {
+      categoryBtns.forEach((categoryBtn) => {
+        categoryBtn.classList.remove('active-category');
+      });
+      e.currentTarget.classList.add('active-category');
+    }
+  });
+}));
