@@ -90,13 +90,13 @@ const flkty = new Flickity(carousel, { // eslint-disable-line
   pageDots: false,
 });
 
-const categoryBtns = document.querySelectorAll('.category-btn-sort');
+const sortCategoryBtns = document.querySelectorAll('.category-btn-sort');
 
-categoryBtns.forEach(((categoryBtn) => {
-  categoryBtn.addEventListener('click', (e) => {
+sortCategoryBtns.forEach(((sortCategoryBtn) => {
+  sortCategoryBtn.addEventListener('click', (e) => {
     if (!e.currentTarget.classList.contains('active-category')) {
-      categoryBtns.forEach((categoryBtn) => {
-        categoryBtn.classList.remove('active-category');
+      sortCategoryBtns.forEach((sortCategoryBtn) => {
+        sortCategoryBtn.classList.remove('active-category');
       });
       e.currentTarget.classList.add('active-category');
     }
