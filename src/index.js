@@ -90,6 +90,18 @@ const flkty = new Flickity(carousel, { // eslint-disable-line
   pageDots: false,
 });
 
+const todoGrid = document.querySelector('.todos-container');
+const iso = new Isotope(todoGrid, { // eslint-disable-line
+  itemSelector: '.todo',
+  percentPosition: true,
+  layoutMode: 'masonry',
+  masonry: {
+    columnWidth: '.todo',
+    horizontalOrder: true,
+    gutter: 10,
+  },
+});
+
 const sortCategoryBtns = document.querySelectorAll('.category-btn-sort');
 
 sortCategoryBtns.forEach(((sortCategoryBtn) => {
