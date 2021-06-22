@@ -111,6 +111,12 @@ sortCategoryBtns.forEach(((sortCategoryBtn) => {
         sortCategoryBtn.classList.remove('active-category');
       });
       e.currentTarget.classList.add('active-category');
+      if(e.currentTarget.childNodes[3].textContent === "all"){
+        iso.arrange({filter: '*'})
+      } else {
+        iso.arrange({filter: `.${e.currentTarget.childNodes[3].textContent}`})
+      }
+      
     }
   });
 }));
