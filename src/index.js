@@ -19,12 +19,27 @@ todoMenuBtns.forEach((todoMenuBtn) => {
 
 const addTodoMenuBtns = document.querySelectorAll('.add-todo-btn, .cancel-add-new-todo-button');
 const addNewTodoMenu = document.querySelector('.add-new-todo-container');
+const addCategoryBtns = document.querySelectorAll('.category-btn-add');
 
 addTodoMenuBtns.forEach((addTodoMenuBtn) => {
   addTodoMenuBtn.addEventListener('click', () => {
     addNewTodoMenu.classList.toggle('show-add-new-todo');
+    addCategoryBtns.forEach((addCategoryBtn) => {
+      addCategoryBtn.classList.remove('active-category');
+    });
   });
 });
+
+addCategoryBtns.forEach(((addCategoryBtn) => {
+  addCategoryBtn.addEventListener('click', (e) => {
+    if (!e.currentTarget.classList.contains('active-category')) {
+      addCategoryBtns.forEach((addCategoryBtn) => {
+        addCategoryBtn.classList.remove('active-category');
+      });
+      e.currentTarget.classList.add('active-category');
+    }
+  });
+}));
 
 const editTodoMenuBtns = document.querySelectorAll('.todo-edit-btn, .cancel-edit-existing-todo-button');
 const editExistingTodoMenu = document.querySelector('.edit-existing-todo-container');
