@@ -254,6 +254,10 @@ $fade: all 0.25s ease-in;
   align-items: center;
 }
 
+.done {
+  text-decoration: line-through;
+}
+
 .add-new-todo-container {
   position: fixed;
   top: 0;
