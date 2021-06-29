@@ -140,32 +140,29 @@ const initializeAddCategoryMenu = () => {
 
 initializeAddCategoryMenu();
 
-const initializeCarousel = () => {
-  const carousel = document.querySelector('.categories-container');
-  const flkty = new Flickity(carousel, { // eslint-disable-line
-    contain: false,
-    freeScroll: true,
-    watchCSS: true,
-    cellAlign: 'center',
-    prevNextButtons: true,
-    pageDots: false,
-  });
-};
+const carousel = document.querySelector('.categories-container');
+const flkty = new Flickity(carousel, { // eslint-disable-line
+  contain: false,
+  freeScroll: true,
+  watchCSS: true,
+  cellAlign: 'center',
+  prevNextButtons: true,
+  pageDots: false,
+});
 
-initializeCarousel();
+const todoGrid = document.querySelector('.todos-container');
+const iso = new Isotope(todoGrid, { // eslint-disable-line
+  itemSelector: '.todo',
+  percentPosition: true,
+  layoutMode: 'masonry',
+  masonry: {
+    columnWidth: '.todo',
+    horizontalOrder: true,
+    gutter: 10,
+  },
+});
 
 const initializeTodoSortGrid = () => {
-  const todoGrid = document.querySelector('.todos-container');
-  const iso = new Isotope(todoGrid, { // eslint-disable-line
-    itemSelector: '.todo',
-    percentPosition: true,
-    layoutMode: 'masonry',
-    masonry: {
-      columnWidth: '.todo',
-      horizontalOrder: true,
-      gutter: 10,
-    },
-  });
   const sortCategoryBtns = document.querySelectorAll('.category-btn-sort');
 
   sortCategoryBtns.forEach(((sortCategoryBtn) => {
