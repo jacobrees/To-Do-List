@@ -64,8 +64,6 @@ $fade: all 0.25s ease-in;
 .categories-side-container {
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 90px;
 }
 
 .categories-container {
@@ -139,6 +137,11 @@ $fade: all 0.25s ease-in;
 
 .option:nth-last-of-type(2) {
   margin-top: 0;
+}
+
+.options {
+  position: sticky;
+  top: 100px;
 }
 
 .options-btn {
@@ -845,6 +848,7 @@ $fade: all 0.25s ease-in;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
+    top: auto;
     bottom: 0;
     display: flex;
     justify-content: space-around;
@@ -869,6 +873,10 @@ $fade: all 0.25s ease-in;
     border: none;
     background: none;
     padding: 20px 0;
+  }
+
+  .show-categories-btn-container {
+    display: none;
   }
 
   .todo {
