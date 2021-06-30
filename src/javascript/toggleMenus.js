@@ -60,7 +60,7 @@ const DeleteCategoryMenu = () => {
   });
 };
 
-const setMenus = () => {
+const setToggleMenus = () => {
   TodoMenu();
   DeleteTodoMenu();
   DeleteAllTodoMenu();
@@ -68,4 +68,4 @@ const setMenus = () => {
   DeleteCategoryMenu();
 };
 
-export default setMenus;
+export default setToggleMenus;
