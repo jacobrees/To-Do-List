@@ -24,9 +24,6 @@ const AddTodoMenu = () => {
   addTodoMenuBtns.forEach((addTodoMenuBtn) => {
     addTodoMenuBtn.addEventListener('click', () => {
       addNewTodoMenu.classList.toggle('show-add-new-todo');
-      addCategoryBtns.forEach((addCategoryBtn) => {
-        addCategoryBtn.classList.remove('active-category');
-      });
     });
   });
 
