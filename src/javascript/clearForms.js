@@ -30,7 +30,4 @@ const clearAddCategoryForm = () => {
   }, 250);
 };
 
-const setClearForms = () => {
-  clearEditTodoForm(); clearAddTodoForm(); clearAddCategoryForm();
-};
-export default setClearForms;
+export default { clearEditTodoForm, clearAddTodoForm, clearAddCategoryForm };
