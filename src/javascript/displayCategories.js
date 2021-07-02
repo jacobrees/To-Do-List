@@ -1,5 +1,8 @@
 import { categoriesArray } from './database.js';
 import setFlickity from './flickity.js';
+import setAddTodoMenuCategoryBtns from './addTodoCategoryBtns.js';
+import setTodoSortBtns from './sortTodosCategory.js';
+import { setDeleteCategoryMenu } from './toggleMenus.js';
 
 const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
@@ -17,9 +20,11 @@ const clearCategories = () => {
   }
 };
 
+const amountOfNulls = (categoriesArray.filter((word) => word === null)).length;
+
 const setSortCategories = () => {
   let html = '';
-  if (categoriesArray.length > 1) {
+  if (amountOfNulls < 3) {
     html += `<div class="category">
         <button type="button" class="category-btn category-btn-sort active-category">
         <span class="dot dot-all"></span>
@@ -79,9 +84,12 @@ const setEditCategories = () => {
 const displayCategories = () => {
   clearCategories();
   setSortCategories();
-  setAddTodoCategories();
-  setEditCategories();
   setFlickity();
+  setTodoSortBtns();
+  setAddTodoCategories();
+  setAddTodoMenuCategoryBtns();
+  setEditCategories();
+  setDeleteCategoryMenu();
 };
 
 export default displayCategories;

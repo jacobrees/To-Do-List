@@ -1,4 +1,4 @@
-const TodoMenu = () => {
+const setTodoMenu = () => {
   const todoMenuBtns = document.querySelectorAll('.todo-menu-btn');
 
   todoMenuBtns.forEach((todoMenuBtn) => {
@@ -16,7 +16,7 @@ const TodoMenu = () => {
   });
 };
 
-const DeleteTodoMenu = () => {
+const setDeleteTodoMenu = () => {
   const deleteTodoMenuBtns = document.querySelectorAll('.todo-delete-btn, .cancel-delete-todo-button');
   const deleteTodoMenu = document.querySelector('.delete-todo-popup-container');
 
@@ -27,7 +27,7 @@ const DeleteTodoMenu = () => {
   });
 };
 
-const DeleteAllTodoMenu = () => {
+const setDeleteAllTodoMenu = () => {
   const deleteAllTodoMenuBtns = document.querySelectorAll('.delete-all-done-todos-btn, .cancel-delete-all-todo-button');
   const deleteAllTodoMenu = document.querySelector('.delete-all-todo-popup-container');
 
@@ -38,7 +38,7 @@ const DeleteAllTodoMenu = () => {
   });
 };
 
-const EditCategoriesMenu = () => {
+const setEditCategoriesMenu = () => {
   const editCategoriesMenuBtns = document.querySelectorAll('.edit-categories-btn, .cancel-edit-categories-button');
   const editCategoriesMenu = document.querySelector('.edit-categories-container');
 
@@ -49,7 +49,7 @@ const EditCategoriesMenu = () => {
   });
 };
 
-const DeleteCategoryMenu = () => {
+const setDeleteCategoryMenu = () => {
   const deleteCategoryMenuBtns = document.querySelectorAll('.delete-category-btn, .cancel-delete-category-button');
   const deleteCategoryMenu = document.querySelector('.delete-category-popup-container');
 
@@ -61,11 +61,10 @@ const DeleteCategoryMenu = () => {
 };
 
 const setToggleMenus = () => {
-  TodoMenu();
-  DeleteTodoMenu();
-  DeleteAllTodoMenu();
-  EditCategoriesMenu();
-  DeleteCategoryMenu();
+  setTodoMenu();
+  setDeleteTodoMenu();
+  setDeleteAllTodoMenu();
+  setEditCategoriesMenu();
 };
 
-export default setToggleMenus;
+export { setToggleMenus, setDeleteCategoryMenu };
