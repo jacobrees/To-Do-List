@@ -1,4 +1,5 @@
-import { categoriesArray, todosArray } from './database.js';
+import { categoriesArray } from './database.js';
+import setFlickity from './flickity.js';
 
 const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
@@ -80,6 +81,7 @@ const displayCategories = () => {
   setSortCategories();
   setAddTodoCategories();
   setEditCategories();
+  setFlickity();
 };
 
 export default displayCategories;
