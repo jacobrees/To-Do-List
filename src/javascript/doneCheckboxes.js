@@ -1,4 +1,4 @@
-const initializeDoneCheckboxes = () => {
+const setDoneCheckboxes = () => {
   const doneCheckboxes = document.querySelectorAll('.done-checkbox');
 
   doneCheckboxes.forEach(((doneCheckbox) => {
@@ -11,4 +11,4 @@ const initializeDoneCheckboxes = () => {
   }));
 };
 
-export default initializeDoneCheckboxes;
+export default setDoneCheckboxes;

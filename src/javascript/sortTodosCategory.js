@@ -1,6 +1,6 @@
 import iso from './isotope.js';
 
-const initializeTodoSortBtns = () => {
+const setTodoSortBtns = () => {
   const sortCategoryBtns = document.querySelectorAll('.category-btn-sort');
 
   sortCategoryBtns.forEach(((sortCategoryBtn) => {
@@ -20,4 +20,4 @@ const initializeTodoSortBtns = () => {
   }));
 };
 
-export default initializeTodoSortBtns;
+export default setTodoSortBtns;
