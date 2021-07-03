@@ -1,3 +1,7 @@
+const todoFactory = (title, description, category) => ({
+  title, description, category,
+});
+
 const addTodo = () => {
 
 };

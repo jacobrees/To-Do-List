@@ -24,7 +24,19 @@ const amountOfNulls = (categoriesArray.filter((word) => word === null)).length;
 
 const setSortCategories = () => {
   let html = '';
-  if (amountOfNulls < 3) {
+  if (amountOfNulls === 3) {
+    categoriesArray.forEach((category, index) => {
+      if (category) {
+        html += `<div class="category">
+          <button type="button" class="category-btn category-btn-sort active-category">
+          <span class="dot dot${index + 1}"></span>
+          
+          <span class="category-title">${category}</span>
+      </button>
+      </div>`;
+      }
+    });
+  } else {
     html += `<div class="category">
         <button type="button" class="category-btn category-btn-sort active-category">
         <span class="dot dot-all"></span>
@@ -32,19 +44,19 @@ const setSortCategories = () => {
         <span class="category-title">all</span>
       </button>
       </div>`;
-  }
 
-  categoriesArray.forEach((category, index) => {
-    if (category) {
-      html += `<div class="category">
+    categoriesArray.forEach((category, index) => {
+      if (category) {
+        html += `<div class="category">
         <button type="button" class="category-btn category-btn-sort">
         <span class="dot dot${index + 1}"></span>
         
         <span class="category-title">${category}</span>
     </button>
     </div>`;
-    }
-  });
+      }
+    });
+  }
   categoriesContainer.innerHTML = html;
 };
 

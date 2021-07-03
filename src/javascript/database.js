@@ -1,4 +1,4 @@
-const categoriesArray = ['work', 'study', 'entertainment', 'family'];
+const categoriesArray = ['work', 'studdy', 'entertainment', 'family'];
 const todosArray = [];
 
 export { categoriesArray, todosArray };
