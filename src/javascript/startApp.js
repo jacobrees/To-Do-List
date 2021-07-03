@@ -3,6 +3,7 @@ import { setToggleMenus } from './toggleMenus.js';
 import setToggleForms from './toggleForms.js';
 import setShowAllCategoriesBtn from './showAllCategories.js';
 import setDoneCheckboxes from './doneCheckboxes.js';
+import setAddCategoryBtn from './categoriesController.js';
 
 const start = () => {
   displayCategories();
@@ -10,6 +11,7 @@ const start = () => {
   setToggleForms();
   setShowAllCategoriesBtn();
   setDoneCheckboxes();
+  setAddCategoryBtn();
 };
 
 export default start;
