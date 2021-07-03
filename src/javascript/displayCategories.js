@@ -3,6 +3,7 @@ import setFlickity from './flickity.js';
 import setAddTodoMenuCategoryBtns from './addTodoCategoryBtns.js';
 import setTodoSortBtns from './sortTodosCategory.js';
 import { setDeleteCategoryMenu } from './toggleMenus.js';
+import iso from './isotope.js';
 
 const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
@@ -59,6 +60,16 @@ const setSortCategories = () => {
   categoriesContainer.innerHTML = html;
 };
 
+const sortByFirstBtn = () => {
+  const sortCategoryBtns = document.querySelectorAll('.category-btn-sort');
+
+  if (sortCategoryBtns[0].childNodes[3].textContent === 'all') {
+    iso.arrange({ filter: '*' });
+  } else {
+    iso.arrange({ filter: `.${sortCategoryBtns[0].childNodes[3].textContent}` });
+  }
+};
+
 const setAddTodoCategories = () => {
   let html = '';
   categoriesArray.forEach((category, index) => {
@@ -97,6 +108,7 @@ const displayCategories = () => {
   setSortCategories();
   setFlickity();
   setTodoSortBtns();
+  sortByFirstBtn();
   setAddTodoCategories();
   setAddTodoMenuCategoryBtns();
   setEditCategories();
