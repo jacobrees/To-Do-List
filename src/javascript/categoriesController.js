@@ -34,9 +34,10 @@ const setCurrentCategoryListener = () => {
 };
 
 const removeCategory = () => {
-  let currentCategoryIndex = categoriesArray.findIndex((cat) => cat.category === currentCategory);
+  const currentCategoryIndex = categoriesArray
+    .findIndex((category) => category.category === currentCategory);
   if (currentCategoryIndex !== -1) {
-    setCategoriesArray([currentCategoryIndex] = { category: null });
+    setCategoriesArray(currentCategoryIndex, { category: null });
   }
 };
 
