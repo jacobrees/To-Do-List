@@ -1,5 +1,4 @@
-import { categoriesArray } from './database.js';
-import displayCategories from './displayCategories.js';
+import { categoriesArray, setCategoriesArray } from './database.js';
 
 const addCategory = (category) => {
   const createCategory = (category) => ({ category });
@@ -7,17 +6,18 @@ const addCategory = (category) => {
 
   if (firstNull !== -1) {
     const newCategory = createCategory(category);
-    categoriesArray[firstNull] = newCategory;
+    setCategoriesArray(firstNull, newCategory);
   }
 };
 
 const setAddCategoryBtn = () => {
   const addCategoryBtn = document.querySelector('.add-add-category-button');
   const categoryNameInput = document.querySelector('#add-category-title');
-  addCategoryBtn.addEventListener('click', () => {
+  addCategoryBtn.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
     const categoryName = categoryNameInput.value;
     addCategory(categoryName);
-    displayCategories();
+    window.location.reload();
   });
 };
 
@@ -27,23 +27,25 @@ const setCurrentCategoryListener = () => {
   const deleteCategoryBtns = document.querySelectorAll('.delete-category-btn');
   deleteCategoryBtns.forEach((deleteCategoryBtn) => {
     deleteCategoryBtn.addEventListener('click', (e) => {
+      e.stopImmediatePropagation();
       currentCategory = e.currentTarget.parentElement.childNodes[1].childNodes[3].textContent;
     });
   });
 };
 
 const removeCategory = () => {
-  const currentCategoryIndex = categoriesArray.findIndex((cat) => cat.category === currentCategory);
+  let currentCategoryIndex = categoriesArray.findIndex((cat) => cat.category === currentCategory);
   if (currentCategoryIndex !== -1) {
-    categoriesArray[currentCategoryIndex] = { category: null };
+    setCategoriesArray([currentCategoryIndex] = { category: null });
   }
 };
 
 const setremoveCategoryBtn = () => {
   const removeCategoryBtn = document.querySelector('.delete-category-button');
-  removeCategoryBtn.addEventListener('click', () => {
+  removeCategoryBtn.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
     removeCategory();
-    displayCategories();
+    window.location.reload();
   });
 };
 
