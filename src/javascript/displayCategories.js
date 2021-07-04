@@ -26,7 +26,7 @@ const setSortCategories = () => {
   const amountOfNulls = categoriesArray.filter((word) => word === null).length;
   if (amountOfNulls > 2) {
     categoriesArray.forEach((category, index) => {
-      if (category) {
+      if (category.category) {
         html += `<div class="category">
           <button type="button" class="category-btn category-btn-sort active-category">
           <span class="dot dot${index + 1}"></span>
@@ -46,7 +46,7 @@ const setSortCategories = () => {
       </div>`;
 
     categoriesArray.forEach((category, index) => {
-      if (category) {
+      if (category.category) {
         html += `<div class="category">
         <button type="button" class="category-btn category-btn-sort">
         <span class="dot dot${index + 1}"></span>
@@ -73,7 +73,7 @@ const sortByFirstBtn = () => {
 const setAddTodoCategories = () => {
   let html = '';
   categoriesArray.forEach((category, index) => {
-    if (category) {
+    if (category.category) {
       html += `<div class="category-option">
         <button type="button" class="category-btn category-btn-add">
         <span class="dot dot${index + 1}"></span>
@@ -88,7 +88,7 @@ const setAddTodoCategories = () => {
 const setEditCategories = () => {
   let html = '';
   categoriesArray.forEach((category, index) => {
-    if (category) {
+    if (category.category) {
       html += `<div class="edit-category">
         <div class="edit-category-container">
         <span class="dot dot${index + 1}"></span>
