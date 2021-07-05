@@ -7,6 +7,7 @@ const addCategory = (category) => {
   if (firstNull !== -1) {
     const newCategory = createCategory(category);
     setCategoriesArray(firstNull, newCategory);
+    window.location.reload();
   }
 };
 
@@ -17,7 +18,6 @@ const setAddCategoryBtn = () => {
     e.stopImmediatePropagation();
     const categoryName = categoryNameInput.value;
     addCategory(categoryName);
-    window.location.reload();
   });
 };
 
@@ -38,6 +38,7 @@ const removeCategory = () => {
     .findIndex((category) => category.category === currentCategory);
   if (currentCategoryIndex !== -1) {
     setCategoriesArray(currentCategoryIndex, { category: null });
+    window.location.reload();
   }
 };
 
@@ -46,7 +47,6 @@ const setremoveCategoryBtn = () => {
   removeCategoryBtn.addEventListener('click', (e) => {
     e.stopImmediatePropagation();
     removeCategory();
-    window.location.reload();
   });
 };
 
