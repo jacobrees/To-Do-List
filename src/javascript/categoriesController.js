@@ -14,8 +14,7 @@ const addCategory = (category) => {
 const setAddCategoryBtn = () => {
   const addCategoryBtn = document.querySelector('.add-add-category-button');
   const categoryNameInput = document.querySelector('#add-category-title');
-  addCategoryBtn.addEventListener('click', (e) => {
-    e.stopImmediatePropagation();
+  addCategoryBtn.addEventListener('click', () => {
     const categoryName = categoryNameInput.value;
     addCategory(categoryName);
   });
@@ -27,7 +26,6 @@ const setCurrentCategoryListener = () => {
   const deleteCategoryBtns = document.querySelectorAll('.delete-category-btn');
   deleteCategoryBtns.forEach((deleteCategoryBtn) => {
     deleteCategoryBtn.addEventListener('click', (e) => {
-      e.stopImmediatePropagation();
       currentCategory = e.currentTarget.parentElement.childNodes[1].childNodes[3].textContent;
     });
   });
@@ -44,8 +42,7 @@ const removeCategory = () => {
 
 const setremoveCategoryBtn = () => {
   const removeCategoryBtn = document.querySelector('.delete-category-button');
-  removeCategoryBtn.addEventListener('click', (e) => {
-    e.stopImmediatePropagation();
+  removeCategoryBtn.addEventListener('click', () => {
     removeCategory();
   });
 };
