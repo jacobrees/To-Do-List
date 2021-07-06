@@ -7,18 +7,6 @@ const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
 const editCategoriesContainer = document.querySelector('.edit-categories-btns-container');
 
-const clearCategories = () => {
-  while (categoriesContainer.firstChild) {
-    categoriesContainer.removeChild(categoriesContainer.lastChild);
-  }
-  while (addTodoCategoriesContainer.firstChild) {
-    addTodoCategoriesContainer.removeChild(addTodoCategoriesContainer.lastChild);
-  }
-  while (editCategoriesContainer.firstChild) {
-    editCategoriesContainer.removeChild(editCategoriesContainer.lastChild);
-  }
-};
-
 const setSortCategories = () => {
   let html = '';
   const amountOfNulls = categoriesArray.filter((category) => category.category === null).length;
@@ -91,7 +79,6 @@ const setEditCategories = () => {
 };
 
 const displayCategories = () => {
-  clearCategories();
   setSortCategories();
   setFlickity();
   setTodoSortBtns();
