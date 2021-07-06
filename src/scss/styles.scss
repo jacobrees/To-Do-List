@@ -10,6 +10,7 @@ $green: #daf2d6;
 $red: #ffcece;
 $purple: #d2ceff;
 $fade: all 0.25s ease-in;
+$slow-fade: all 0.5s ease-in;
 
 * {
   margin: 0;
@@ -27,7 +28,7 @@ $fade: all 0.25s ease-in;
   top: 0;
   left: 0;
   background-color: $white;
-  transition: $fade;
+  transition: $slow-fade;
   z-index: 9999;
   display: flex;
   align-items: center;

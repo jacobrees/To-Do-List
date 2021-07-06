@@ -9,7 +9,7 @@ const addCategory = (category) => {
     const newCategory = createCategory(category);
     setCategoriesArray(firstNull, newCategory);
     toggleLoadingScreen();
-    setTimeout(() => { window.location.reload(); }, 300);
+    setTimeout(() => { window.location.reload(); }, 550);
   }
 };
 
@@ -39,7 +39,7 @@ const removeCategory = () => {
   if (currentCategoryIndex !== -1) {
     setCategoriesArray(currentCategoryIndex, { category: null });
     toggleLoadingScreen();
-    setTimeout(() => { window.location.reload(); }, 300);
+    setTimeout(() => { window.location.reload(); }, 550);
   }
 };
 
