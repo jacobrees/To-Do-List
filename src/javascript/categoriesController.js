@@ -1,4 +1,5 @@
 import { categoriesArray, setCategoriesArray } from './database.js';
+import toggleLoadingScreen from './loadScreen.js';
 
 const addCategory = (category) => {
   const createCategory = (category) => ({ category });
@@ -7,7 +8,8 @@ const addCategory = (category) => {
   if (firstNull !== -1) {
     const newCategory = createCategory(category);
     setCategoriesArray(firstNull, newCategory);
-    window.location.reload();
+    toggleLoadingScreen();
+    setTimeout(() => { window.location.reload(); }, 300);
   }
 };
 
@@ -36,7 +38,8 @@ const removeCategory = () => {
     .findIndex((category) => category.category === currentCategory);
   if (currentCategoryIndex !== -1) {
     setCategoriesArray(currentCategoryIndex, { category: null });
-    window.location.reload();
+    toggleLoadingScreen();
+    setTimeout(() => { window.location.reload(); }, 300);
   }
 };
 
