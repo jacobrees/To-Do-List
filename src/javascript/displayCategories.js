@@ -2,7 +2,6 @@ import { categoriesArray } from './database.js';
 import setFlickity from './flickity.js';
 import setAddTodoMenuCategoryBtns from './addTodoCategoryBtns.js';
 import setTodoSortBtns from './sortTodosCategory.js';
-import { setDeleteCategoryMenu } from './toggleMenus.js';
 
 const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
@@ -99,7 +98,6 @@ const displayCategories = () => {
   setAddTodoCategories();
   setAddTodoMenuCategoryBtns();
   setEditCategories();
-  setDeleteCategoryMenu();
 };
 
 export default displayCategories;

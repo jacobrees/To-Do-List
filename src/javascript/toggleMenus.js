@@ -65,6 +65,7 @@ const setToggleMenus = () => {
   setDeleteTodoMenu();
   setDeleteAllTodoMenu();
   setEditCategoriesMenu();
+  setDeleteCategoryMenu();
 };
 
-export { setToggleMenus, setDeleteCategoryMenu };
+export default setToggleMenus;
