@@ -11,7 +11,7 @@ const start = () => {
   window.addEventListener('load', () => {
     setTimeout(() => {
       toggleLoadingScreen();
-    }, 2000);
+    }, 1800);
   });
   startDatabase();
   displayCategories();
