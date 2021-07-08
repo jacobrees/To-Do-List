@@ -4,8 +4,6 @@ import setAddTodoMenuCategoryBtns from './addTodoCategoryBtns.js';
 import setTodoSortBtns from './sortTodosCategory.js';
 
 const categoriesContainer = document.querySelector('.categories-container');
-const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
-const editCategoriesContainer = document.querySelector('.edit-categories-btns-container');
 
 const createSortCategoryElement = (dotColor, categoryName, activeCategory) => {
   const sortCategory = document.createElement('div');
@@ -50,20 +48,35 @@ const setSortCategories = () => {
   }
 };
 
+const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
+
+const createAddCategoryElement = (dotColor, categoryName) => {
+  const addCategory = document.createElement('div');
+  addCategory.classList.add('category-option');
+  const btn = document.createElement('button');
+  btn.classList.add('category-btn', 'category-btn-add');
+  addCategory.appendChild(btn);
+  const spanDot = document.createElement('span');
+  spanDot.classList.add('dot', `dot${dotColor}`);
+  btn.appendChild(spanDot);
+  const spanTitle = document.createElement('span');
+  spanTitle.classList.add('category-title');
+  spanTitle.textContent = `${categoryName}`;
+  btn.appendChild(spanTitle);
+
+  return addCategory;
+};
+
 const setAddTodoCategories = () => {
-  let html = '';
   categoriesArray.forEach((category, index) => {
     if (category.category) {
-      html += `<div class="category-option">
-                <button type="button" class="category-btn category-btn-add">
-                  <span class="dot dot${index + 1}"></span>
-                  <span class="category-title">${category.category}</span>
-                </button>
-              </div>`;
+      addTodoCategoriesContainer
+        .appendChild(createAddCategoryElement(index + 1, category.category));
     }
   });
-  addTodoCategoriesContainer.innerHTML = html;
 };
+
+const editCategoriesContainer = document.querySelector('.edit-categories-btns-container');
 
 const setEditCategories = () => {
   let html = '';
