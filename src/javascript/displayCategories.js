@@ -7,41 +7,47 @@ const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
 const editCategoriesContainer = document.querySelector('.edit-categories-btns-container');
 
+const createSortCategoryElement = (dotColor, categoryName, activeCategory) => {
+  const sortCategory = document.createElement('div');
+  sortCategory.classList.add('category');
+  const btn = document.createElement('button');
+  if (activeCategory) {
+    btn.classList.add('category-btn', 'category-btn-sort', 'active-category');
+  } else {
+    btn.classList.add('category-btn', 'category-btn-sort');
+  }
+  sortCategory.appendChild(btn);
+  const spanDot = document.createElement('span');
+  spanDot.classList.add('dot', `dot${dotColor}`);
+  btn.appendChild(spanDot);
+  const spanTitle = document.createElement('span');
+  spanTitle.classList.add('category-title');
+  spanTitle.textContent = `${categoryName}`;
+  btn.appendChild(spanTitle);
+
+  return sortCategory;
+};
+
 const setSortCategories = () => {
-  let html = '';
   const amountOfNulls = categoriesArray.filter((category) => category.category === null).length;
   if (amountOfNulls > 2) {
     categoriesArray.forEach((category, index) => {
       if (category.category) {
-        html += `<div class="category">
-                    <button type="button" class="category-btn category-btn-sort active-category">
-                      <span class="dot dot${index + 1}"></span>
-                      <span class="category-title">${category.category}</span>
-                    </button>
-                  </div>`;
+        categoriesContainer
+          .appendChild(createSortCategoryElement(index + 1, category.category, true));
       }
     });
   } else {
-    html += `<div class="category">
-              <button type="button" class="category-btn category-btn-sort active-category">
-                <span class="dot dot-all"></span>
-                <span class="category-title">all</span>
-              </button>
-            </div>`;
+    categoriesContainer
+      .appendChild(createSortCategoryElement('-all', 'all', true));
 
     categoriesArray.forEach((category, index) => {
       if (category.category) {
-        html += `<div class="category">
-                  <button type="button" class="category-btn category-btn-sort">
-                    <span class="dot dot${index + 1}"></span>
-                    <span class="category-title">${category.category}</span>
-                  </button>
-                </div>`;
+        categoriesContainer
+          .appendChild(createSortCategoryElement(index + 1, category.category, false));
       }
     });
   }
-
-  categoriesContainer.innerHTML = html;
 };
 
 const setAddTodoCategories = () => {

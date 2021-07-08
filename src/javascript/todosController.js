@@ -1,4 +1,4 @@
-const todoFactory = (title, description, category) => ({
+const createTodo = (title, description, category) => ({
   title, description, category,
 });
 

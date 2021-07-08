@@ -7,6 +7,9 @@ const startDatabase = () => {
     ];
     localStorage.setItem('categoriesArray', JSON.stringify(defaultArray));
   }
+  if (localStorage.getItem('todosArray') === null) {
+    localStorage.setItem('todosArray', JSON.stringify([]));
+  }
 };
 
 const categoriesArray = JSON.parse(localStorage.getItem('categoriesArray')) || [{ category: null }, { category: null }, { category: null }, { category: null }];
@@ -18,7 +21,7 @@ const setCategoriesArray = (index, category) => {
   localStorage.setItem('categoriesArray', JSON.stringify(setArray));
 };
 
-const todosArray = [];
+const todosArray = JSON.parse(localStorage.getItem('todosArray')) || [];
 
 export {
   categoriesArray, todosArray, setCategoriesArray, startDatabase,

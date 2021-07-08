@@ -10,10 +10,10 @@ const setTodoSortBtns = () => {
           sortCategoryBtn.classList.remove('active-category');
         });
         e.currentTarget.classList.add('active-category');
-        if (e.currentTarget.childNodes[3].textContent === 'all') {
+        if (e.currentTarget.childNodes[1].textContent === 'all') {
           iso.arrange({ filter: '*' });
         } else {
-          iso.arrange({ filter: `.${e.currentTarget.childNodes[3].textContent}` });
+          iso.arrange({ filter: `.${e.currentTarget.childNodes[1].textContent}` });
         }
       }
     });
