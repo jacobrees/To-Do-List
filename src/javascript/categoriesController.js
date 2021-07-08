@@ -28,7 +28,7 @@ const setCurrentCategoryListener = () => {
   const deleteCategoryBtns = document.querySelectorAll('.delete-category-btn');
   deleteCategoryBtns.forEach((deleteCategoryBtn) => {
     deleteCategoryBtn.addEventListener('click', (e) => {
-      currentCategory = e.currentTarget.parentElement.childNodes[1].childNodes[3].textContent;
+      currentCategory = e.currentTarget.parentElement.childNodes[0].childNodes[1].textContent;
     });
   });
 };
