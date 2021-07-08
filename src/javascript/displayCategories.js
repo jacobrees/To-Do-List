@@ -24,7 +24,7 @@ const createSortCategoryElement = (dotColor, categoryName, activeCategory) => {
   return sortCategory;
 };
 
-const setSortCategories = () => {
+const displaySortCategories = () => {
   const categoriesContainer = document.querySelector('.categories-container');
   const amountOfNulls = categoriesArray.filter((category) => category.category === null).length;
   if (amountOfNulls > 2) {
@@ -64,7 +64,7 @@ const createAddCategoryElement = (dotColor, categoryName) => {
   return addCategory;
 };
 
-const setAddTodoCategories = () => {
+const displayAddTodoCategories = () => {
   const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
   categoriesArray.forEach((category, index) => {
     if (category.category) {
@@ -104,7 +104,7 @@ const createEditCategoryElement = (dotColor, categoryName) => {
   return editCategory;
 };
 
-const setEditCategories = () => {
+const displayEditCategories = () => {
   const editCategoriesContainer = document.querySelector('.edit-categories-btns-container');
   categoriesArray.forEach((category, index) => {
     if (category.category) {
@@ -115,12 +115,12 @@ const setEditCategories = () => {
 };
 
 const displayCategories = () => {
-  setSortCategories();
+  displaySortCategories();
   setFlickity();
   setTodoSortBtns();
-  setAddTodoCategories();
+  displayAddTodoCategories();
   setAddTodoMenuCategoryBtns();
-  setEditCategories();
+  displayEditCategories();
 };
 
 export default displayCategories;
