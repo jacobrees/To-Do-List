@@ -1,14 +1,8 @@
 import iso from './isotope.js';
 
-const createTodoElement = (categoryTitle, categoryDot, todoTitle, todoDescription) => {
-  const todo = document.createElement('div');
-  todo.classList.add('todo', `${categoryTitle}`);
-  const todoContentDiv = document.createElement('div');
-  todoContentDiv.classList.add('todo-content');
-  todo.appendChild(todoContentDiv);
+const createTodoHeadingElement = (todoTitle) => {
   const todoHeadingDiv = document.createElement('div');
   todoHeadingDiv.classList.add('todo-heading');
-  todoContentDiv.appendChild(todoHeadingDiv);
   const todoH3 = document.createElement('h3');
   todoH3.classList.add('todo-title');
   todoH3.textContent = `${todoTitle}`;
@@ -25,16 +19,24 @@ const createTodoElement = (categoryTitle, categoryDot, todoTitle, todoDescriptio
     'M6 12c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm9 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm9 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z',
   );
   svg.appendChild(svgPath);
+
+  return todoHeadingDiv;
+};
+
+const createTodoDescriptionElement = (todoDescription) => {
   const todoDescriptionDiv = document.createElement('div');
   todoDescriptionDiv.classList.add('todo-description');
-  todoContentDiv.appendChild(todoDescriptionDiv);
   const todoDescriptionText = document.createElement('p');
   todoDescriptionText.classList.add('todo-paragraph');
   todoDescriptionText.textContent = `${todoDescription}`;
   todoDescriptionDiv.appendChild(todoDescriptionText);
+
+  return todoDescriptionDiv;
+};
+
+const createTodoFooterElement = (categoryDot) => {
   const todoFooterDiv = document.createElement('div');
   todoFooterDiv.classList.add('todo-footer');
-  todoContentDiv.appendChild(todoFooterDiv);
   const categoryDotSpan = document.createElement('span');
   categoryDotSpan.classList.add('dot', `dot${categoryDot}`);
   todoFooterDiv.appendChild(categoryDotSpan);
@@ -49,9 +51,13 @@ const createTodoElement = (categoryTitle, categoryDot, todoTitle, todoDescriptio
   const doneIndicator = document.createElement('span');
   doneIndicator.classList.add('control_indicator');
   doneLabel.appendChild(doneIndicator);
+
+  return todoFooterDiv;
+};
+
+const createTodoOptionsElement = () => {
   const todoOptionsDiv = document.createElement('div');
   todoOptionsDiv.classList.add('todo-options');
-  todo.appendChild(todoOptionsDiv);
   const todoEditBtn = document.createElement('button');
   todoEditBtn.classList.add('todo-options-btn', 'todo-edit-btn');
   todoEditBtn.textContent = 'Edit...';
@@ -60,6 +66,24 @@ const createTodoElement = (categoryTitle, categoryDot, todoTitle, todoDescriptio
   todoDeleteBtn.classList.add('todo-options-btn', 'todo-delete-btn');
   todoDeleteBtn.textContent = 'Delete';
   todoOptionsDiv.appendChild(todoDeleteBtn);
+
+  return todoOptionsDiv;
+};
+
+const createTodoElement = (categoryTitle, categoryDot, todoTitle, todoDescription) => {
+  const todo = document.createElement('div');
+  todo.classList.add('todo', `${categoryTitle}`);
+  const todoContentDiv = document.createElement('div');
+  todoContentDiv.classList.add('todo-content');
+  todo.appendChild(todoContentDiv);
+
+  todoContentDiv.appendChild(createTodoHeadingElement(todoTitle));
+
+  todoContentDiv.appendChild(createTodoDescriptionElement(todoDescription));
+
+  todoContentDiv.appendChild(createTodoFooterElement(categoryDot));
+
+  todo.appendChild(createTodoOptionsElement());
 
   return todo;
 };
