@@ -6,6 +6,7 @@ import setToggleForms from './toggleForms.js';
 import setShowAllCategoriesBtn from './showAllCategories.js';
 import setDoneCheckboxes from './doneCheckboxes.js';
 import setCategoriesController from './categoriesController.js';
+import { displayTodo } from './displayTodos.js';
 
 const start = () => {
   window.addEventListener('load', () => {
@@ -20,6 +21,7 @@ const start = () => {
   setShowAllCategoriesBtn();
   setDoneCheckboxes();
   setCategoriesController();
+  setTimeout(() => { displayTodo(); }, 2000);
 };
 
 export default start;
