@@ -1,7 +1,7 @@
 import toggleLoadingScreen from './loadScreen.js';
 import { startDatabase } from './database.js';
 import displayCategories from './displayCategories.js';
-import setToggleMenus from './toggleMenus.js';
+import { setToggleMenus } from './toggleMenus.js';
 import setToggleForms from './toggleForms.js';
 import setShowAllCategoriesBtn from './showAllCategories.js';
 import setDoneCheckboxes from './doneCheckboxes.js';

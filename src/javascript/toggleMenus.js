@@ -1,14 +1,20 @@
 const setTodoMenu = () => {
-  const todoMenuBtns = document.querySelectorAll('.todo-menu-btn');
+  let todoMenuBtns = document.querySelectorAll('.todo-menu-btn');
+
+  todoMenuBtns.forEach((menuBtn) => {
+    menuBtn.replaceWith(menuBtn.cloneNode(true));
+  });
+
+  todoMenuBtns = document.querySelectorAll('.todo-menu-btn');
 
   todoMenuBtns.forEach((todoMenuBtn) => {
     todoMenuBtn.addEventListener('click', (e) => {
-      const todoOptions = e.currentTarget.parentElement.parentElement.parentElement.childNodes[3];
+      const todoOptions = e.currentTarget.parentElement.parentElement.parentElement.childNodes[1];
       if (todoOptions.classList.contains('show-todo-options')) {
         todoOptions.classList.remove('show-todo-options');
       } else {
         todoMenuBtns.forEach((todoOptions) => {
-          todoOptions.parentElement.parentElement.parentElement.childNodes[3].classList.remove('show-todo-options');
+          todoOptions.parentElement.parentElement.parentElement.childNodes[1].classList.remove('show-todo-options');
         });
         todoOptions.classList.toggle('show-todo-options');
       }
@@ -61,11 +67,10 @@ const setDeleteCategoryMenu = () => {
 };
 
 const setToggleMenus = () => {
-  setTodoMenu();
   setDeleteTodoMenu();
   setDeleteAllTodoMenu();
   setEditCategoriesMenu();
   setDeleteCategoryMenu();
 };
 
-export default setToggleMenus;
+export { setToggleMenus, setTodoMenu };
