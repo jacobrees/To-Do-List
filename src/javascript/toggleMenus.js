@@ -23,8 +23,14 @@ const setTodoMenu = () => {
 };
 
 const setDeleteTodoMenu = () => {
-  const deleteTodoMenuBtns = document.querySelectorAll('.todo-delete-btn, .cancel-delete-todo-button');
+  let deleteTodoMenuBtns = document.querySelectorAll('.todo-delete-btn, .cancel-delete-todo-button');
   const deleteTodoMenu = document.querySelector('.delete-todo-popup-container');
+
+  deleteTodoMenuBtns.forEach((deleteTodoMenuBtn) => {
+    deleteTodoMenuBtn.replaceWith(deleteTodoMenuBtn.cloneNode(true));
+  });
+
+  deleteTodoMenuBtns = document.querySelectorAll('.todo-delete-btn, .cancel-delete-todo-button');
 
   deleteTodoMenuBtns.forEach((deleteTodoMenuBtn) => {
     deleteTodoMenuBtn.addEventListener('click', () => {
@@ -67,10 +73,9 @@ const setDeleteCategoryMenu = () => {
 };
 
 const setToggleMenus = () => {
-  setDeleteTodoMenu();
   setDeleteAllTodoMenu();
   setEditCategoriesMenu();
   setDeleteCategoryMenu();
 };
 
-export { setToggleMenus, setTodoMenu };
+export { setToggleMenus, setTodoMenu, setDeleteTodoMenu };
