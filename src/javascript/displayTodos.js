@@ -1,6 +1,7 @@
 import iso from './isotope.js';
 import { setTodoMenu, setDeleteTodoMenu } from './toggleMenus.js';
 import { setEditTodoMenu } from './toggleForms.js';
+import setDoneCheckboxes from './doneCheckboxes.js'
 
 const createTodoHeadingElement = (todoTitle) => {
   const todoHeadingDiv = document.createElement('div');
@@ -78,13 +79,9 @@ const createTodoElement = (categoryTitle, categoryDot, todoTitle, todoDescriptio
   const todoContentDiv = document.createElement('div');
   todoContentDiv.classList.add('todo-content');
   todo.appendChild(todoContentDiv);
-
   todoContentDiv.appendChild(createTodoHeadingElement(todoTitle));
-
   todoContentDiv.appendChild(createTodoDescriptionElement(todoDescription));
-
   todoContentDiv.appendChild(createTodoFooterElement(categoryDot));
-
   todo.appendChild(createTodoOptionsElement());
 
   return todo;
@@ -98,6 +95,7 @@ const displayTodo = () => {
   setTodoMenu();
   setEditTodoMenu();
   setDeleteTodoMenu();
+  setDoneCheckboxes();
 };
 
 const displayAllTodos = () => {
