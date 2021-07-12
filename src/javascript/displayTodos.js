@@ -1,7 +1,8 @@
 import iso from './isotope.js';
+import { todosArray, categoriesArray } from './database.js';
 import { setTodoMenu, setDeleteTodoMenu } from './toggleMenus.js';
 import { setEditTodoMenu } from './toggleForms.js';
-import setDoneCheckboxes from './doneCheckboxes.js'
+import setDoneCheckboxes from './doneCheckboxes.js';
 
 const createTodoHeadingElement = (todoTitle) => {
   const todoHeadingDiv = document.createElement('div');
@@ -87,11 +88,8 @@ const createTodoElement = (categoryTitle, categoryDot, todoTitle, todoDescriptio
   return todo;
 };
 
-const displayTodo = () => {
-  iso.insert(createTodoElement('work', '1', 'Test Todo', 'This is a test todo.'));
-  iso.insert(createTodoElement('work', '1', 'Test Todo', 'This is a test todo.'));
-  iso.insert(createTodoElement('work', '1', 'Test Todo', 'This is a test todo.'));
-  iso.insert(createTodoElement('work', '1', 'Test Todo', 'This is a test todo.'));
+const displayTodo = (categoryTitle, categoryDot, todoTitle, todoDescription) => {
+  iso.insert(createTodoElement(categoryTitle, categoryDot, todoTitle, todoDescription));
   setTodoMenu();
   setEditTodoMenu();
   setDeleteTodoMenu();
@@ -99,7 +97,20 @@ const displayTodo = () => {
 };
 
 const displayAllTodos = () => {
-
+  todosArray.forEach((todo) => {
+    const categoryIndex = categoriesArray
+      .findIndex((category) => category.category === todo.todoCategory) + 1;
+    iso.insert(createTodoElement(
+      todo.todoCategory,
+      categoryIndex,
+      todo.todoTitle,
+      todo.todoDescription,
+    ));
+  });
+  setTodoMenu();
+  setEditTodoMenu();
+  setDeleteTodoMenu();
+  setDoneCheckboxes();
 };
 
 export { displayTodo, displayAllTodos };

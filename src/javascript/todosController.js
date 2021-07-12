@@ -21,3 +21,9 @@ const deleteTodo = () => {
 const deleteAllDoneTodos = () => {
 
 };
+
+const setTodosController = () => {
+
+};
+
+export default setTodosController;

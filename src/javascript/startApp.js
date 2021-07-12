@@ -5,7 +5,7 @@ import { setToggleMenus } from './toggleMenus.js';
 import { setToggleForms } from './toggleForms.js';
 import setShowAllCategoriesBtn from './showAllCategories.js';
 import setCategoriesController from './categoriesController.js';
-import { displayTodo } from './displayTodos.js';
+import { displayAllTodos } from './displayTodos.js';
 
 const start = () => {
   window.addEventListener('load', () => {
@@ -19,7 +19,7 @@ const start = () => {
   setToggleForms();
   setShowAllCategoriesBtn();
   setCategoriesController();
-  setTimeout(() => { displayTodo(); }, 2000);
+  displayAllTodos();
 };
 
 export default start;

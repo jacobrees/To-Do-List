@@ -1,9 +1,9 @@
 const setDoneCheckboxes = () => {
   let doneCheckboxes = document.querySelectorAll('.done-checkbox');
 
-  doneCheckboxes.forEach(doneCheckbox => {
+  doneCheckboxes.forEach((doneCheckbox) => {
     doneCheckbox.replaceWith(doneCheckbox.cloneNode(true));
-  })
+  });
 
   doneCheckboxes = document.querySelectorAll('.done-checkbox');
 
