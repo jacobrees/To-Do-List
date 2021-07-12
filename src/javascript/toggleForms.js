@@ -34,8 +34,14 @@ const addTodoMenu = () => {
   });
 };
 
-const editTodoMenu = () => {
-  const editTodoMenuBtns = document.querySelectorAll('.todo-edit-btn, .cancel-edit-existing-todo-button');
+const setEditTodoMenu = () => {
+  let editTodoMenuBtns = document.querySelectorAll('.todo-edit-btn, .cancel-edit-existing-todo-button');
+
+  editTodoMenuBtns.forEach((editTodoMenuBtn) => {
+    editTodoMenuBtn.replaceWith(editTodoMenuBtn.cloneNode(true));
+  });
+
+  editTodoMenuBtns = document.querySelectorAll('.todo-edit-btn, .cancel-edit-existing-todo-button');
 
   editTodoMenuBtns.forEach((editTodoMenuBtn) => {
     editTodoMenuBtn.addEventListener('click', () => {
@@ -56,8 +62,7 @@ const addCategoryMenu = () => {
 
 const setToggleForms = () => {
   addTodoMenu();
-  editTodoMenu();
   addCategoryMenu();
 };
 
-export default setToggleForms;
+export { setToggleForms, setEditTodoMenu };

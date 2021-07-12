@@ -1,5 +1,6 @@
 import iso from './isotope.js';
 import { setTodoMenu } from './toggleMenus.js';
+import { setEditTodoMenu } from './toggleForms.js';
 
 const createTodoHeadingElement = (todoTitle) => {
   const todoHeadingDiv = document.createElement('div');
@@ -95,6 +96,7 @@ const displayTodo = () => {
   iso.insert(createTodoElement('work', '1', 'Test Todo', 'This is a test todo.'));
   iso.insert(createTodoElement('work', '1', 'Test Todo', 'This is a test todo.'));
   setTodoMenu();
+  setEditTodoMenu();
 };
 
 const displayAllTodos = () => {
