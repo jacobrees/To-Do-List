@@ -5,6 +5,7 @@ import { setToggleMenus } from './toggleMenus.js';
 import { setToggleForms } from './toggleForms.js';
 import setShowAllCategoriesBtn from './showAllCategories.js';
 import setCategoriesController from './categoriesController.js';
+import setTodosController from './todosController.js';
 import { displayAllTodos } from './displayTodos.js';
 
 const start = () => {
@@ -19,6 +20,7 @@ const start = () => {
   setToggleForms();
   setShowAllCategoriesBtn();
   setCategoriesController();
+  setTodosController();
   displayAllTodos();
 };
 

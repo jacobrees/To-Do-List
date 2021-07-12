@@ -65,4 +65,4 @@ const setToggleForms = () => {
   addCategoryMenu();
 };
 
-export { setToggleForms, setEditTodoMenu };
+export { setToggleForms, setEditTodoMenu, toggleAddTodoMenu };
