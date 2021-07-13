@@ -1,6 +1,6 @@
 const startDatabase = () => {
   if (localStorage.getItem('categoriesArray') === null) {
-    const defaultArray = [{ category: 'work' },
+    const defaultArray = [{ category: 'default' },
       { category: null },
       { category: null },
       { category: null },
@@ -8,12 +8,12 @@ const startDatabase = () => {
     localStorage.setItem('categoriesArray', JSON.stringify(defaultArray));
   }
   if (localStorage.getItem('todosArray') === null) {
-    const defaultArray = [{ todoTitle: 'Test Title', todoDescription: 'This is a test todo.', todoCategory: 'work' }];
+    const defaultArray = [{ todoTitle: 'Default Todo', todoDescription: 'This is a default todo.', todoCategory: 'default' }];
     localStorage.setItem('todosArray', JSON.stringify(defaultArray));
   }
 };
 
-const categoriesArray = JSON.parse(localStorage.getItem('categoriesArray')) || [{ category: 'work' }, { category: null }, { category: null }, { category: null }];
+const categoriesArray = JSON.parse(localStorage.getItem('categoriesArray')) || [{ category: 'default' }, { category: null }, { category: null }, { category: null }];
 
 const setCategoriesArray = (index, category) => {
   const setArray = [...categoriesArray];
@@ -22,7 +22,7 @@ const setCategoriesArray = (index, category) => {
   localStorage.setItem('categoriesArray', JSON.stringify(setArray));
 };
 
-const todosArray = JSON.parse(localStorage.getItem('todosArray')) || [{ todoTitle: 'Test Title', todoDescription: 'This is a test todo.', todoCategory: 'work' }];
+const todosArray = JSON.parse(localStorage.getItem('todosArray')) || [{ todoTitle: 'Default Todo', todoDescription: 'This is a default todo.', todoCategory: 'default' }];
 
 const addTodoToArray = (todo) => {
   const setArray = [...JSON.parse(localStorage.getItem('todosArray'))];
