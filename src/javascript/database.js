@@ -25,8 +25,8 @@ const setCategoriesArray = (index, category) => {
 const todosArray = JSON.parse(localStorage.getItem('todosArray')) || [{ todoTitle: 'Test Title', todoDescription: 'This is a test todo.', todoCategory: 'work' }];
 
 const addTodoToArray = (todo) => {
-  const setArray = [...todosArray];
-  setArray.push(todo);
+  const setArray = [...JSON.parse(localStorage.getItem('todosArray'))];
+  setArray[setArray.length] = todo;
 
   localStorage.setItem('todosArray', JSON.stringify(setArray));
 };

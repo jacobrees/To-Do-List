@@ -13,6 +13,21 @@ const toggleEditTodoMenu = () => {
   if (editExistingTodoMenu.classList.contains('show-edit-existing-todo')) {
     clearEditTodoForm();
   }
+
+  const todos = document.querySelectorAll('.todo');
+  let currentTodo = null;
+  todos.forEach((todo) => {
+    if (todo.childNodes[1].classList.contains('show-todo-options')) {
+      currentTodo = todo;
+    }
+  });
+
+  const editTodoTitle = document.querySelector('#edit-todo-title');
+  const editTodoDescription = document.querySelector('#edit-todo-description');
+
+  editTodoTitle.value = currentTodo.childNodes[0].childNodes[0].childNodes[0].textContent;
+  editTodoDescription.value = currentTodo.childNodes[0].childNodes[1].childNodes[0].textContent;
+
   editExistingTodoMenu.classList.toggle('show-edit-existing-todo');
 };
 

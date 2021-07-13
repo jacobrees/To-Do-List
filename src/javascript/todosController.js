@@ -35,16 +35,24 @@ const setAddTodoListener = () => {
   });
 };
 
-const findCurrentTodo = () => {
-
-};
-
 const editTodo = () => {
-
+  const todos = document.querySelectorAll('.todo');
+  let currentTodo = null;
+  todos.forEach((todo) => {
+    if (todo.childNodes[1].classList.contains('show-todo-options')) {
+      currentTodo = todo;
+    }
+  });
 };
 
 const deleteTodo = () => {
-
+  const todos = document.querySelectorAll('.todo');
+  let currentTodo = null;
+  todos.forEach((todo) => {
+    if (todo.childNodes[1].classList.contains('show-todo-options')) {
+      currentTodo = todo;
+    }
+  });
 };
 
 const deleteAllDoneTodos = () => {
