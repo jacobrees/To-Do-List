@@ -1,4 +1,4 @@
-import { categoriesArray, setCategoriesArray } from './database.js';
+import { categoriesArray, setCategoriesArray, deleteAllTodosInCategory } from './database.js';
 import toggleLoadingScreen from './loadScreen.js';
 
 const addCategory = (category) => {
@@ -38,6 +38,7 @@ const removeCategory = () => {
     .findIndex((category) => category.category === currentCategory);
   if (currentCategoryIndex !== -1) {
     setCategoriesArray(currentCategoryIndex, { category: null });
+    deleteAllTodosInCategory(currentCategory);
     toggleLoadingScreen();
     setTimeout(() => { window.location.reload(); }, 550);
   }
