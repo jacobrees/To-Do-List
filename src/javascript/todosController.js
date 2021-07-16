@@ -35,7 +35,7 @@ const setAddTodoListener = () => {
   });
 };
 
-const editTodo = () => {
+const findCurrentTodo = () => {
   const todos = document.querySelectorAll('.todo');
   let currentTodo = null;
   todos.forEach((todo) => {
@@ -43,16 +43,15 @@ const editTodo = () => {
       currentTodo = todo;
     }
   });
+  return currentTodo;
+};
+
+const editTodo = () => {
+  findCurrentTodo();
 };
 
 const deleteTodo = () => {
-  const todos = document.querySelectorAll('.todo');
-  let currentTodo = null;
-  todos.forEach((todo) => {
-    if (todo.childNodes[1].classList.contains('show-todo-options')) {
-      currentTodo = todo;
-    }
-  });
+  findCurrentTodo();
 };
 
 const deleteAllDoneTodos = () => {
