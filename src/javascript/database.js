@@ -38,6 +38,13 @@ const deleteAllTodosInCategory = (category) => {
   localStorage.setItem('todosArray', JSON.stringify(filteredArray));
 };
 
+const deleteTodoFromArray = (todoTitle) => {
+  const setArray = [...JSON.parse(localStorage.getItem('todosArray'))];
+
+  const filteredArray = setArray.filter((todo) => todo.todoTitle !== todoTitle);
+  localStorage.setItem('todosArray', JSON.stringify(filteredArray));
+};
+
 export {
   categoriesArray,
   todosArray,
@@ -45,4 +52,5 @@ export {
   startDatabase,
   addTodoToArray,
   deleteAllTodosInCategory,
+  deleteTodoFromArray,
 };

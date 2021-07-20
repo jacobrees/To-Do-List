@@ -1,6 +1,7 @@
 import { displayTodo } from './displayTodos.js';
-import { addTodoToArray, categoriesArray } from './database.js';
+import { addTodoToArray, categoriesArray, deleteTodoFromArray } from './database.js';
 import { toggleAddTodoMenu } from './toggleForms.js';
+import iso from './isotope.js';
 
 const createTodo = (todoTitle, todoDescription, todoCategory) => ({
   todoTitle, todoDescription, todoCategory,
@@ -48,7 +49,8 @@ const findCurrentTodo = () => {
 
 const editTodo = () => {
   const currentTodo = findCurrentTodo();
-  console.log(currentTodo);
+  const todoTitle = currentTodo.childNodes[0].childNodes[0].childNodes[0].textContent;
+  const todoDescription = currentTodo.childNodes[0].childNodes[1].childNodes[0].textContent;
 };
 
 const setEditTodoListener = () => {
@@ -60,7 +62,10 @@ const setEditTodoListener = () => {
 
 const deleteTodo = () => {
   const currentTodo = findCurrentTodo();
-  console.log(currentTodo);
+  const todoTitle = currentTodo.childNodes[0].childNodes[0].childNodes[0].textContent;
+  iso.remove(currentTodo);
+  iso.layout();
+  deleteTodoFromArray(todoTitle);
 };
 
 const setDeleteTodoListener = () => {
