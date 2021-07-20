@@ -47,11 +47,27 @@ const findCurrentTodo = () => {
 };
 
 const editTodo = () => {
-  findCurrentTodo();
+  const currentTodo = findCurrentTodo();
+  console.log(currentTodo);
+};
+
+const setEditTodoListener = () => {
+  const editTodoBtn = document.querySelector('.add-edit-existing-todo-button');
+  editTodoBtn.addEventListener('click', () => {
+    editTodo();
+  });
 };
 
 const deleteTodo = () => {
-  findCurrentTodo();
+  const currentTodo = findCurrentTodo();
+  console.log(currentTodo);
+};
+
+const setDeleteTodoListener = () => {
+  const deleteTodoBtn = document.querySelector('.delete-todo-button');
+  deleteTodoBtn.addEventListener('click', () => {
+    deleteTodo();
+  });
 };
 
 const deleteAllDoneTodos = () => {
@@ -60,6 +76,8 @@ const deleteAllDoneTodos = () => {
 
 const setTodosController = () => {
   setAddTodoListener();
+  setEditTodoListener();
+  setDeleteTodoListener();
 };
 
 export default setTodosController;
