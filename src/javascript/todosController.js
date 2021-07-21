@@ -1,6 +1,7 @@
 import { displayTodo } from './displayTodos.js';
 import { addTodoToArray, categoriesArray, deleteTodoFromArray } from './database.js';
 import { toggleAddTodoMenu } from './toggleForms.js';
+import { toggleDeleteTodoMenu } from './toggleMenus.js';
 import iso from './isotope.js';
 
 const createTodo = (todoTitle, todoDescription, todoCategory) => ({
@@ -66,6 +67,7 @@ const deleteTodo = () => {
   iso.remove(currentTodo);
   iso.layout();
   deleteTodoFromArray(todoTitle);
+  toggleDeleteTodoMenu();
 };
 
 const setDeleteTodoListener = () => {

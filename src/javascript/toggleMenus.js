@@ -22,9 +22,13 @@ const setTodoMenu = () => {
   });
 };
 
+const toggleDeleteTodoMenu = () => {
+  const deleteTodoMenu = document.querySelector('.delete-todo-popup-container');
+  deleteTodoMenu.classList.toggle('show-delete-todo-popup');
+};
+
 const setDeleteTodoMenu = () => {
   let deleteTodoMenuBtns = document.querySelectorAll('.todo-delete-btn, .cancel-delete-todo-button');
-  const deleteTodoMenu = document.querySelector('.delete-todo-popup-container');
 
   deleteTodoMenuBtns.forEach((deleteTodoMenuBtn) => {
     deleteTodoMenuBtn.replaceWith(deleteTodoMenuBtn.cloneNode(true));
@@ -34,7 +38,7 @@ const setDeleteTodoMenu = () => {
 
   deleteTodoMenuBtns.forEach((deleteTodoMenuBtn) => {
     deleteTodoMenuBtn.addEventListener('click', () => {
-      deleteTodoMenu.classList.toggle('show-delete-todo-popup');
+      toggleDeleteTodoMenu();
     });
   });
 };
@@ -78,4 +82,6 @@ const setToggleMenus = () => {
   setDeleteCategoryMenu();
 };
 
-export { setToggleMenus, setTodoMenu, setDeleteTodoMenu };
+export {
+  setToggleMenus, setTodoMenu, setDeleteTodoMenu, toggleDeleteTodoMenu,
+};
