@@ -8,7 +8,9 @@ const startDatabase = () => {
     localStorage.setItem('categoriesArray', JSON.stringify(defaultArray));
   }
   if (localStorage.getItem('todosArray') === null) {
-    const defaultArray = [{ todoTitle: 'Default Todo', todoDescription: 'This is a default todo.', todoCategory: 'default' }];
+    const defaultArray = [{
+      todoTitle: 'Default Todo', todoDescription: 'This is a default todo.', todoCategory: 'default', todoDone: false,
+    }];
     localStorage.setItem('todosArray', JSON.stringify(defaultArray));
   }
 };
@@ -22,7 +24,9 @@ const setCategoriesArray = (index, category) => {
   localStorage.setItem('categoriesArray', JSON.stringify(setArray));
 };
 
-const todosArray = JSON.parse(localStorage.getItem('todosArray')) || [{ todoTitle: 'Default Todo', todoDescription: 'This is a default todo.', todoCategory: 'default' }];
+const todosArray = JSON.parse(localStorage.getItem('todosArray')) || [{
+  todoTitle: 'Default Todo', todoDescription: 'This is a default todo.', todoCategory: 'default', todoDone: false,
+}];
 
 const addTodoToArray = (todo) => {
   const setArray = [...JSON.parse(localStorage.getItem('todosArray'))];

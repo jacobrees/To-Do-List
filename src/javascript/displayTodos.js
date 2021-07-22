@@ -24,9 +24,12 @@ const setDoneCheckboxes = () => {
   }));
 };
 
-const createTodoHeadingElement = (todoTitle) => {
+const createTodoHeadingElement = (todoTitle, todoDone) => {
   const todoHeadingDiv = document.createElement('div');
   todoHeadingDiv.classList.add('todo-heading');
+  if (todoDone) {
+    todoHeadingDiv.classList.add('done');
+  }
   const todoH3 = document.createElement('h3');
   todoH3.classList.add('todo-title');
   todoH3.textContent = `${todoTitle}`;
@@ -47,9 +50,12 @@ const createTodoHeadingElement = (todoTitle) => {
   return todoHeadingDiv;
 };
 
-const createTodoDescriptionElement = (todoDescription) => {
+const createTodoDescriptionElement = (todoDescription, todoDone) => {
   const todoDescriptionDiv = document.createElement('div');
   todoDescriptionDiv.classList.add('todo-description');
+  if (todoDone) {
+    todoDescriptionDiv.classList.add('done');
+  }
   const todoDescriptionText = document.createElement('p');
   todoDescriptionText.classList.add('todo-paragraph');
   todoDescriptionText.textContent = `${todoDescription}`;
@@ -58,7 +64,7 @@ const createTodoDescriptionElement = (todoDescription) => {
   return todoDescriptionDiv;
 };
 
-const createTodoFooterElement = (categoryDot) => {
+const createTodoFooterElement = (categoryDot, todoDone) => {
   const todoFooterDiv = document.createElement('div');
   todoFooterDiv.classList.add('todo-footer');
   const categoryDotSpan = document.createElement('span');
@@ -71,6 +77,9 @@ const createTodoFooterElement = (categoryDot) => {
   const doneCheckbox = document.createElement('input');
   doneCheckbox.type = 'checkbox';
   doneCheckbox.classList.add('done-checkbox');
+  if (todoDone) {
+    doneCheckbox.checked = true;
+  }
   doneLabel.appendChild(doneCheckbox);
   const doneIndicator = document.createElement('span');
   doneIndicator.classList.add('control_indicator');
@@ -94,22 +103,22 @@ const createTodoOptionsElement = () => {
   return todoOptionsDiv;
 };
 
-const createTodoElement = (categoryTitle, categoryDot, todoTitle, todoDescription) => {
+const createTodoElement = (categoryTitle, categoryDot, todoTitle, todoDescription, todoDone) => {
   const todo = document.createElement('div');
   todo.classList.add('todo', `${categoryTitle}`);
   const todoContentDiv = document.createElement('div');
   todoContentDiv.classList.add('todo-content');
   todo.appendChild(todoContentDiv);
-  todoContentDiv.appendChild(createTodoHeadingElement(todoTitle));
-  todoContentDiv.appendChild(createTodoDescriptionElement(todoDescription));
-  todoContentDiv.appendChild(createTodoFooterElement(categoryDot));
+  todoContentDiv.appendChild(createTodoHeadingElement(todoTitle, todoDone));
+  todoContentDiv.appendChild(createTodoDescriptionElement(todoDescription, todoDone));
+  todoContentDiv.appendChild(createTodoFooterElement(categoryDot, todoDone));
   todo.appendChild(createTodoOptionsElement());
 
   return todo;
 };
 
 const displayTodo = (categoryTitle, categoryDot, todoTitle, todoDescription) => {
-  iso.insert(createTodoElement(categoryTitle, categoryDot, todoTitle, todoDescription));
+  iso.insert(createTodoElement(categoryTitle, categoryDot, todoTitle, todoDescription, false));
   setTodoMenu();
   setEditTodoMenu();
   setDeleteTodoMenu();
@@ -125,6 +134,7 @@ const displayAllTodos = () => {
       categoryIndex,
       todo.todoTitle,
       todo.todoDescription,
+      todo.todoDone,
     ));
   });
   setTodoMenu();

@@ -6,16 +6,16 @@ import { toggleAddTodoMenu, toggleEditTodoMenu } from './toggleForms.js';
 import { toggleDeleteTodoMenu } from './toggleMenus.js';
 import iso from './isotope.js';
 
-const createTodo = (todoTitle, todoDescription, todoCategory) => ({
-  todoTitle, todoDescription, todoCategory,
+const createTodo = (todoTitle, todoDescription, todoCategory, todoDone) => ({
+  todoTitle, todoDescription, todoCategory, todoDone,
 });
 
-const addTodo = (title, description, category) => {
-  const todo = createTodo(title, description, category);
+const addTodo = (title, description, category, done) => {
+  const todo = createTodo(title, description, category, done);
   addTodoToArray(todo);
   const categoryIndex = categoriesArray
     .findIndex((cat) => cat.category === category) + 1;
-  displayTodo(category, categoryIndex, title, description);
+  displayTodo(category, categoryIndex, title, description, done);
   toggleAddTodoMenu();
 };
 
@@ -35,6 +35,7 @@ const setAddTodoListener = () => {
       todoTitleInput.value,
       todoDescriptionInput.value,
       activeCategory.childNodes[1].textContent,
+      false,
     );
   });
 };
