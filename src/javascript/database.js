@@ -62,6 +62,18 @@ const editTodoInArray = (todoTitle, newTodoTitle, newTodoDescription) => {
   localStorage.setItem('todosArray', JSON.stringify(setArray));
 };
 
+const toggleTodoDoneInArray = (todoTitle) => {
+  const setArray = [...JSON.parse(localStorage.getItem('todosArray'))];
+
+  const index = setArray.findIndex((todo) => todo.todoTitle === todoTitle);
+  const todo = setArray.find((todo) => todo.todoTitle === todoTitle);
+  todo.todoDone = !todo.todoDone;
+
+  setArray[index] = todo;
+
+  localStorage.setItem('todosArray', JSON.stringify(setArray));
+};
+
 export {
   categoriesArray,
   todosArray,
@@ -71,4 +83,5 @@ export {
   deleteAllTodosInCategory,
   deleteTodoFromArray,
   editTodoInArray,
+  toggleTodoDoneInArray,
 };

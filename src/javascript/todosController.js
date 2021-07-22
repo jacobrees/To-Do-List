@@ -1,6 +1,6 @@
 import { displayTodo } from './displayTodos.js'; // eslint-disable-line
 import {
-  addTodoToArray, categoriesArray, deleteTodoFromArray, editTodoInArray,
+  addTodoToArray, categoriesArray, deleteTodoFromArray, editTodoInArray, toggleTodoDoneInArray,
 } from './database.js';
 import { toggleAddTodoMenu, toggleEditTodoMenu } from './toggleForms.js';
 import { toggleDeleteTodoMenu } from './toggleMenus.js';
@@ -86,6 +86,19 @@ const setDeleteTodoListener = () => {
   });
 };
 
+const toggleDoneTodo = (e) => {
+  const currentTodoHeading = e.currentTarget.parentElement.parentElement
+    .parentElement.childNodes[0];
+  const currentTodoDescription = e.currentTarget.parentElement.parentElement
+    .parentElement.childNodes[1];
+  currentTodoHeading.classList.toggle('done');
+  currentTodoDescription.classList.toggle('done');
+
+  const todoTitle = e.currentTarget.parentElement.parentElement
+    .parentElement.childNodes[0].childNodes[0].textContent;
+  toggleTodoDoneInArray(todoTitle);
+};
+
 const setDoneCheckboxes = () => {
   let doneCheckboxes = document.querySelectorAll('.done-checkbox');
 
@@ -97,12 +110,7 @@ const setDoneCheckboxes = () => {
 
   doneCheckboxes.forEach(((doneCheckbox) => {
     doneCheckbox.addEventListener('change', (e) => {
-      const currentTodoHeading = e.currentTarget.parentElement.parentElement
-        .parentElement.childNodes[0];
-      const currentTodoDescription = e.currentTarget.parentElement.parentElement
-        .parentElement.childNodes[1];
-      currentTodoHeading.classList.toggle('done');
-      currentTodoDescription.classList.toggle('done');
+      toggleDoneTodo(e);
     });
   }));
 };
