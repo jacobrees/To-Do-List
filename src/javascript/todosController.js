@@ -1,5 +1,7 @@
 import { displayTodo } from './displayTodos.js';
-import { addTodoToArray, categoriesArray, deleteTodoFromArray } from './database.js';
+import {
+  addTodoToArray, categoriesArray, deleteTodoFromArray, editTodoInArray,
+} from './database.js';
 import { toggleAddTodoMenu } from './toggleForms.js';
 import { toggleDeleteTodoMenu } from './toggleMenus.js';
 import iso from './isotope.js';
@@ -50,8 +52,13 @@ const findCurrentTodo = () => {
 
 const editTodo = () => {
   const currentTodo = findCurrentTodo();
-  const todoTitle = currentTodo.childNodes[0].childNodes[0].childNodes[0].textContent;
-  const todoDescription = currentTodo.childNodes[0].childNodes[1].childNodes[0].textContent;
+  const todoTitle = currentTodo.childNodes[0].childNodes[0].childNodes[0];
+  const todoDescription = currentTodo.childNodes[0].childNodes[1].childNodes[0];
+  const newTodoTitle = document.querySelector('#edit-todo-title');
+  const newTodoDescription = document.querySelector('#edit-todo-description');
+  editTodoInArray(todoTitle.textContent, newTodoTitle.value, newTodoDescription.value);
+  todoTitle.textContent = newTodoTitle.value;
+  todoDescription.textContent = newTodoDescription.value;
 };
 
 const setEditTodoListener = () => {
