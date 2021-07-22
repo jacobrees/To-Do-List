@@ -2,7 +2,7 @@ import { displayTodo } from './displayTodos.js';
 import {
   addTodoToArray, categoriesArray, deleteTodoFromArray, editTodoInArray,
 } from './database.js';
-import { toggleAddTodoMenu } from './toggleForms.js';
+import { toggleAddTodoMenu, toggleEditTodoMenu } from './toggleForms.js';
 import { toggleDeleteTodoMenu } from './toggleMenus.js';
 import iso from './isotope.js';
 
@@ -59,6 +59,7 @@ const editTodo = () => {
   editTodoInArray(todoTitle.textContent, newTodoTitle.value, newTodoDescription.value);
   todoTitle.textContent = newTodoTitle.value;
   todoDescription.textContent = newTodoDescription.value;
+  toggleEditTodoMenu();
 };
 
 const setEditTodoListener = () => {
