@@ -2,27 +2,7 @@ import iso from './isotope.js';
 import { todosArray, categoriesArray } from './database.js';
 import { setTodoMenu, setDeleteTodoMenu } from './toggleMenus.js';
 import { setEditTodoMenu } from './toggleForms.js';
-
-const setDoneCheckboxes = () => {
-  let doneCheckboxes = document.querySelectorAll('.done-checkbox');
-
-  doneCheckboxes.forEach((doneCheckbox) => {
-    doneCheckbox.replaceWith(doneCheckbox.cloneNode(true));
-  });
-
-  doneCheckboxes = document.querySelectorAll('.done-checkbox');
-
-  doneCheckboxes.forEach(((doneCheckbox) => {
-    doneCheckbox.addEventListener('change', (e) => {
-      const currentTodoHeading = e.currentTarget.parentElement.parentElement
-        .parentElement.childNodes[0];
-      const currentTodoDescription = e.currentTarget.parentElement.parentElement
-        .parentElement.childNodes[1];
-      currentTodoHeading.classList.toggle('done');
-      currentTodoDescription.classList.toggle('done');
-    });
-  }));
-};
+import { setDoneCheckboxes } from './todosController.js'; // eslint-disable-line
 
 const createTodoHeadingElement = (todoTitle, todoDone) => {
   const todoHeadingDiv = document.createElement('div');
