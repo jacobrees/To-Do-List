@@ -1,12 +1,13 @@
 import { categoriesArray, setCategoriesArray, deleteAllTodosInCategory } from './database.js';
 import { toggleLoadingScreen } from './startScreen.js';
+import { formatCategoryTitle } from './formatText.js';
 
 const addCategory = (category) => {
   const createCategory = (category) => ({ category });
   const firstNull = categoriesArray.findIndex((category) => category.category === null);
 
   if (firstNull !== -1) {
-    const newCategory = createCategory(category);
+    const newCategory = createCategory(formatCategoryTitle(category));
     setCategoriesArray(firstNull, newCategory);
     toggleLoadingScreen();
     setTimeout(() => { window.location.reload(); }, 550);
