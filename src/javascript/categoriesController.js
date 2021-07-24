@@ -1,5 +1,5 @@
 import { categoriesArray, setCategoriesArray, deleteAllTodosInCategory } from './database.js';
-import toggleLoadingScreen from './loadScreen.js';
+import { toggleLoadingScreen } from './startScreen.js';
 
 const addCategory = (category) => {
   const createCategory = (category) => ({ category });
