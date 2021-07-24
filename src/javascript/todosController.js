@@ -1,9 +1,10 @@
 import { displayTodo } from './displayTodos.js'; // eslint-disable-line
 import {
-  addTodoToArray, categoriesArray, deleteTodoFromArray, editTodoInArray, toggleTodoDoneInArray,
+  addTodoToArray, categoriesArray, deleteTodoFromArray,
+  editTodoInArray, toggleTodoDoneInArray, deleteAllDoneTodosInArray,
 } from './database.js';
 import { toggleAddTodoMenu, toggleEditTodoMenu } from './toggleForms.js';
-import { toggleDeleteTodoMenu } from './toggleMenus.js';
+import { toggleDeleteTodoMenu, toggleDeleteAllTodoMenu } from './toggleMenus.js';
 import iso from './isotope.js';
 
 const createTodo = (todoTitle, todoDescription, todoCategory, todoDone) => ({
@@ -116,13 +117,31 @@ const setDoneCheckboxes = () => {
 };
 
 const deleteAllDoneTodos = () => {
+  deleteAllDoneTodosInArray();
+  const todos = document.querySelectorAll('.todo');
 
+  todos.forEach((todo) => {
+    if (todo.childNodes[0].childNodes[0].classList.contains('done')) {
+      iso.remove(todo);
+    }
+  });
+  iso.layout();
+};
+
+const setDeleteAllDoneTodosListener = () => {
+  const deleteAllDoneTodosBtn = document.querySelector('.delete-all-todo-button');
+
+  deleteAllDoneTodosBtn.addEventListener('click', () => {
+    deleteAllDoneTodos();
+    toggleDeleteAllTodoMenu();
+  });
 };
 
 const setTodosController = () => {
   setAddTodoListener();
   setEditTodoListener();
   setDeleteTodoListener();
+  setDeleteAllDoneTodosListener();
 };
 
 export { setTodosController, setDoneCheckboxes };

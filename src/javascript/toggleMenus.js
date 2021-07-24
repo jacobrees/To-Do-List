@@ -43,13 +43,17 @@ const setDeleteTodoMenu = () => {
   });
 };
 
+const toggleDeleteAllTodoMenu = () => {
+  const deleteAllTodoMenu = document.querySelector('.delete-all-todo-popup-container');
+  deleteAllTodoMenu.classList.toggle('show-delete-all-todo-popup');
+};
+
 const setDeleteAllTodoMenu = () => {
   const deleteAllTodoMenuBtns = document.querySelectorAll('.delete-all-done-todos-btn, .cancel-delete-all-todo-button');
-  const deleteAllTodoMenu = document.querySelector('.delete-all-todo-popup-container');
 
   deleteAllTodoMenuBtns.forEach((deleteAllTodoMenuBtn) => {
     deleteAllTodoMenuBtn.addEventListener('click', () => {
-      deleteAllTodoMenu.classList.toggle('show-delete-all-todo-popup');
+      toggleDeleteAllTodoMenu();
     });
   });
 };
@@ -83,5 +87,5 @@ const setToggleMenus = () => {
 };
 
 export {
-  setToggleMenus, setTodoMenu, setDeleteTodoMenu, toggleDeleteTodoMenu,
+  setToggleMenus, setTodoMenu, setDeleteTodoMenu, toggleDeleteTodoMenu, toggleDeleteAllTodoMenu,
 };

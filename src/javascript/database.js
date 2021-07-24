@@ -74,6 +74,13 @@ const toggleTodoDoneInArray = (todoTitle) => {
   localStorage.setItem('todosArray', JSON.stringify(setArray));
 };
 
+const deleteAllDoneTodosInArray = () => {
+  const setArray = [...JSON.parse(localStorage.getItem('todosArray'))];
+
+  const filteredArray = setArray.filter((todo) => todo.todoDone === false);
+  localStorage.setItem('todosArray', JSON.stringify(filteredArray));
+};
+
 export {
   categoriesArray,
   todosArray,
@@ -84,4 +91,5 @@ export {
   deleteTodoFromArray,
   editTodoInArray,
   toggleTodoDoneInArray,
+  deleteAllDoneTodosInArray,
 };
