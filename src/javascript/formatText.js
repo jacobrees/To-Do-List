@@ -6,11 +6,8 @@ const formatTodoTitle = (text) => text.trim()
   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
   .join(' ');
 
-function formatTodoDescription(text) {
-  const newString = text.trim()
-    .toLowerCase()
-    .replace(/(^\s*\w|[.!?]\s*\w)/g, (c) => c.toUpperCase());
-  return newString;
-}
+const formatTodoDescription = (text) => text.trim()
+  .toLowerCase()
+  .replace(/(^\s*\w|[.!?]\s*\w)/g, (c) => c.toUpperCase());
 
 export { formatCategoryTitle, formatTodoTitle, formatTodoDescription };
