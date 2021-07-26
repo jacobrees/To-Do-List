@@ -3,6 +3,7 @@ import { startDatabase } from './database.js';
 import displayCategories from './displayCategories.js';
 import { setToggleMenus } from './toggleMenus.js';
 import { setToggleForms } from './toggleForms.js';
+import { setCloseFlashError } from './flashError.js';
 import setShowAllCategoriesBtn from './showAllCategories.js';
 import setCategoriesController from './categoriesController.js';
 import { setTodosController } from './todosController.js';
@@ -19,6 +20,7 @@ const start = () => {
   displayCategories();
   setToggleMenus();
   setToggleForms();
+  setCloseFlashError();
   setShowAllCategoriesBtn();
   setCategoriesController();
   setTodosController();
