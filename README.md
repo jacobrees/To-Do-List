@@ -1,6 +1,6 @@
 # Todo List
 
-> This project is a todo list built using JavaScript. This is project is inspired by _The Odin Project_. This app features the ability to add & delete categories aswell as the ability to add, delete, edit, sort & change done status of todos.
+> This project is a to-do list app built using JavaScript. This project is inspired by The Odin Project. This app features the ability to add & delete Categories as well as the ability to add, delete, edit, sort & change the done status of Todos.
 
 ### todo Screenshot:
 
@@ -22,7 +22,7 @@ $ cd <folder>
 $ git clone git@github.com:jacobrees/To-Do-List.git
 ```
 
-To launch an instance of this app. Inside of your terminal you will need to navigate into the repository you have just cloned. You will then need to navigate inside of the dist directory. You will do this by using `cd` inside of your terminal. 
+To launch an instance of this app. Inside your terminal, you will need to navigate into the repository you have just cloned. You will then need to navigate inside of the dist directory. You will do this by using `cd` inside of your terminal. 
 
 Once you are inside of this folder run the command `google-chrome index.html` and this will open the project in Google Chrome (substitute google-chrome for your prefered web browser if you wish to open in a different browser). 
 
