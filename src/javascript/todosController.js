@@ -52,11 +52,17 @@ const setAddTodoListener = () => {
     } else if (todosArray.some((todo) => todo.todoTitle === todoTitleInput)) {
       flashError('Todo Cannot Have Same Title As Existing Todo');
     } else if (todoTitleInput.length < 10) {
-      flashError('Category Name Cannot Be Less Than 10 Characters Long');
+      flashError('Todo Name Cannot Be Less Than 10 Characters Long');
     } else if (todoTitleInput.length > 40) {
-      flashError('Category Name Cannot Be Greater Than 40 Characters Long');
+      flashError('Todo Name Cannot Be Greater Than 40 Characters Long');
     } else if (/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(todoTitleInput)) {
-      flashError('Category Name Cannot Contain Any Special Characters');
+      flashError('Todo Name Cannot Contain Any Special Characters');
+    } else if (todoDescriptionInput.length < 20) {
+      flashError('Todo Description Cannot Be Less Than 20 Characters Long');
+    } else if (todoDescriptionInput.length > 300) {
+      flashError('Todo Description Cannot Be Greater Than 300 Characters Long');
+    } else if (activeCategory === null) {
+      flashError('Todo Category Cannot Be Unselected');
     } else {
       addTodo(
         todoTitleInput,
