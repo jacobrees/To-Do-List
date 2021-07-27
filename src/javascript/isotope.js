@@ -5,7 +5,7 @@ const iso = new Isotope(todoGrid, { // eslint-disable-line
   layoutMode: 'masonry',
   masonry: {
     columnWidth: '.todo',
-    horizontalOrder: true,
+    horizontalOrder: false,
     gutter: 10,
   },
 });
