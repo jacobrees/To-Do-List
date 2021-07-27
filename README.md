@@ -62,6 +62,7 @@ $ npm run build
 - SCSS
 - JavaScript
 - Webpack
+- LocalStorage
 
 ## Authors
 
