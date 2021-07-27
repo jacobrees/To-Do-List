@@ -1,6 +1,6 @@
 # Todo List
 
-> This project is a to-do list app built using JavaScript. This project is inspired by The Odin Project. This app features the ability to add & delete Categories as well as the ability to add, delete, edit, sort & change the done status of Todos.
+> This project is a To-Do List app built using JavaScript. This project is inspired by The Odin Project. This app features the ability to add & delete Categories as well as the ability to add, delete, edit, sort & change the done status of Todos.
 
 ### todo Screenshot:
 
