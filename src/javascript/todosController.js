@@ -45,7 +45,6 @@ const setAddTodoListener = () => {
         activeCategory = addCategoryBtn;
       }
     });
-
     const todosArray = JSON.parse(localStorage.getItem('todosArray'));
     if (todosArray.length === 30) {
       flashError('You Cannot Have More Than 30 Todos');
@@ -85,22 +84,64 @@ const findCurrentTodo = () => {
   return currentTodo;
 };
 
-const editTodo = () => {
-  const currentTodo = findCurrentTodo();
-  const todoTitle = currentTodo.childNodes[0].childNodes[0].childNodes[0];
-  const todoDescription = currentTodo.childNodes[0].childNodes[1].childNodes[0];
-  const newTodoTitle = document.querySelector('#edit-todo-title');
-  const newTodoDescription = document.querySelector('#edit-todo-description');
-  editTodoInArray(todoTitle.textContent, newTodoTitle.value, newTodoDescription.value);
-  todoTitle.textContent = newTodoTitle.value;
-  todoDescription.textContent = newTodoDescription.value;
+const editTodo = (todoTitle, todoDescription, newTodoTitle, newTodoDescription) => {
+  editTodoInArray(todoTitle.textContent, newTodoTitle, newTodoDescription);
+  todoTitle.textContent = newTodoTitle;
+  todoDescription.textContent = newTodoDescription;
   toggleEditTodoMenu();
 };
 
 const setEditTodoListener = () => {
   const editTodoBtn = document.querySelector('.add-edit-existing-todo-button');
   editTodoBtn.addEventListener('click', () => {
-    editTodo();
+    const currentTodo = findCurrentTodo();
+    const todoTitle = currentTodo.childNodes[0].childNodes[0].childNodes[0];
+    const todoDescription = currentTodo.childNodes[0].childNodes[1].childNodes[0];
+    const newTodoTitle = formatTodoTitle(document.querySelector('#edit-todo-title').value);
+    const newTodoDescription = formatTodoDescription(document.querySelector('#edit-todo-description').value);
+    const todosArray = JSON.parse(localStorage.getItem('todosArray'));
+    if (newTodoTitle !== todoTitle.textContent
+      && newTodoDescription === todoDescription.textContent) {
+      if (todosArray.some((todo) => todo.todoTitle === newTodoTitle)) {
+        flashError('Todo Cannot Have Same Title As Existing Todo');
+      } else if (newTodoTitle.length < 10) {
+        flashError('Todo Name Cannot Be Less Than 10 Characters Long');
+      } else if (newTodoTitle.length > 40) {
+        flashError('Todo Name Cannot Be Greater Than 40 Characters Long');
+      } else if (/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(newTodoTitle)) {
+        flashError('Todo Name Cannot Contain Any Special Characters');
+      } else {
+        editTodo(todoTitle, todoDescription, newTodoTitle, newTodoDescription);
+      }
+    } else if (newTodoTitle === todoTitle.textContent
+      && newTodoDescription !== todoDescription.textContent) {
+      if (newTodoDescription.length < 20) {
+        flashError('Todo Description Cannot Be Less Than 20 Characters Long');
+      } else if (newTodoDescription.length > 300) {
+        flashError('Todo Description Cannot Be Greater Than 300 Characters Long');
+      } else {
+        editTodo(todoTitle, todoDescription, newTodoTitle, newTodoDescription);
+      }
+    } else if (newTodoTitle !== todoTitle.textContent
+      && newTodoDescription !== todoDescription.textContent) {
+      if (todosArray.some((todo) => todo.todoTitle === newTodoTitle)) {
+        flashError('Todo Cannot Have Same Title As Existing Todo');
+      } else if (newTodoTitle.length < 10) {
+        flashError('Todo Name Cannot Be Less Than 10 Characters Long');
+      } else if (newTodoTitle.length > 40) {
+        flashError('Todo Name Cannot Be Greater Than 40 Characters Long');
+      } else if (/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(newTodoTitle)) {
+        flashError('Todo Name Cannot Contain Any Special Characters');
+      } else if (newTodoDescription.length < 20) {
+        flashError('Todo Description Cannot Be Less Than 20 Characters Long');
+      } else if (newTodoDescription.length > 300) {
+        flashError('Todo Description Cannot Be Greater Than 300 Characters Long');
+      } else {
+        editTodo(todoTitle, todoDescription, newTodoTitle, newTodoDescription);
+      }
+    } else {
+      editTodo(todoTitle, todoDescription, newTodoTitle, newTodoDescription);
+    }
   });
 };
 
