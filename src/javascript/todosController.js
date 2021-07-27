@@ -7,6 +7,7 @@ import { toggleAddTodoMenu, toggleEditTodoMenu } from './toggleForms.js';
 import { toggleDeleteTodoMenu, toggleDeleteAllTodoMenu } from './toggleMenus.js';
 import iso from './isotope.js';
 import { formatTodoTitle, formatTodoDescription } from './formatText.js';
+import { flashError } from './flashError.js';
 
 const createTodo = (todoTitle, todoDescription, todoCategory, todoDone) => ({
   todoTitle, todoDescription, todoCategory, todoDone,
@@ -14,8 +15,8 @@ const createTodo = (todoTitle, todoDescription, todoCategory, todoDone) => ({
 
 const addTodo = (title, description, category, done) => {
   const todo = createTodo(
-    formatTodoTitle(title),
-    formatTodoDescription(description),
+    title,
+    description,
     category,
     done,
   );
@@ -25,8 +26,8 @@ const addTodo = (title, description, category, done) => {
   displayTodo(
     category,
     categoryIndex,
-    formatTodoTitle(title),
-    formatTodoDescription(description),
+    title,
+    description,
     done,
   );
   toggleAddTodoMenu();
@@ -35,8 +36,8 @@ const addTodo = (title, description, category, done) => {
 const setAddTodoListener = () => {
   const addTodoBtn = document.querySelector('.add-add-new-todo-button');
   addTodoBtn.addEventListener('click', () => {
-    const todoTitleInput = document.querySelector('#add-todo-title');
-    const todoDescriptionInput = document.querySelector('#add-todo-description');
+    const todoTitleInput = formatTodoTitle(document.querySelector('#add-todo-title').value);
+    const todoDescriptionInput = formatTodoDescription(document.querySelector('#add-todo-description').value);
     const addCategoryBtns = document.querySelectorAll('.category-btn-add');
     let activeCategory = null;
     addCategoryBtns.forEach((addCategoryBtn) => {
@@ -44,12 +45,26 @@ const setAddTodoListener = () => {
         activeCategory = addCategoryBtn;
       }
     });
-    addTodo(
-      todoTitleInput.value,
-      todoDescriptionInput.value,
-      activeCategory.childNodes[1].textContent,
-      false,
-    );
+
+    const todosArray = JSON.parse(localStorage.getItem('todosArray'));
+    if (todosArray.length === 30) {
+      flashError('You Cannot Have More Than 30 Todos');
+    } else if (todosArray.some((todo) => todo.todoTitle === todoTitleInput)) {
+      flashError('Todo Cannot Have Same Title As Existing Todo');
+    } else if (todoTitleInput.length < 10) {
+      flashError('Category Name Cannot Be Less Than 10 Characters Long');
+    } else if (todoTitleInput.length > 40) {
+      flashError('Category Name Cannot Be Greater Than 40 Characters Long');
+    } else if (/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(todoTitleInput)) {
+      flashError('Category Name Cannot Contain Any Special Characters');
+    } else {
+      addTodo(
+        todoTitleInput,
+        todoDescriptionInput,
+        activeCategory.childNodes[1].textContent,
+        false,
+      );
+    }
   });
 };
 
