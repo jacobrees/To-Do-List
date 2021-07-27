@@ -2,6 +2,7 @@ import { categoriesArray, setCategoriesArray, deleteAllTodosInCategory } from '.
 import { toggleLoadingScreen } from './startScreen.js';
 import { formatCategoryTitle } from './formatText.js';
 import { flashError } from './flashError.js';
+import { clearAddCategoryFormFast } from './clearForms.js';
 
 const firstNull = categoriesArray.findIndex((category) => category.category === null);
 
@@ -12,7 +13,7 @@ const addCategory = (category) => {
     const newCategory = createCategory(category);
     setCategoriesArray(firstNull, newCategory);
     toggleLoadingScreen();
-    setTimeout(() => { window.location.reload(); }, 550);
+    setTimeout(() => { clearAddCategoryFormFast(); window.location.reload(); }, 550);
   }
 };
 

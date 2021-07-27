@@ -22,12 +22,18 @@ const clearAddTodoForm = () => {
   }, 250);
 };
 
-const clearAddCategoryForm = () => {
-  const addCategoryInput = document.querySelector('#add-category-title');
+const addCategoryInput = document.querySelector('#add-category-title');
 
+const clearAddCategoryForm = () => {
   setTimeout(() => {
     addCategoryInput.value = '';
   }, 250);
 };
 
-export { clearEditTodoForm, clearAddTodoForm, clearAddCategoryForm };
+const clearAddCategoryFormFast = () => {
+  addCategoryInput.value = '';
+};
+
+export {
+  clearEditTodoForm, clearAddTodoForm, clearAddCategoryForm, clearAddCategoryFormFast,
+};
