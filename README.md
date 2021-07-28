@@ -50,7 +50,7 @@ run `npm start` to start a development server.
 $ npm start
 ```
 
-run `npm run build` to bundle all code inside of the dist directory.
+run `npm run build` to bundle all code into the dist directory.
 
 ```
 $ npm run build
