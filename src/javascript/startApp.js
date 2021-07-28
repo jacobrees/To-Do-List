@@ -22,7 +22,7 @@ const start = () => {
   setTodosController();
   displayAllTodos();
   window.addEventListener('load', () => {
-    iso.layout()
+    iso.layout();
     setTimeout(() => {
       toggleLoadingScreen();
     }, 1800);
