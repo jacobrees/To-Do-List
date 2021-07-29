@@ -1,12 +1,5 @@
 import { clearEditTodoForm, clearAddTodoForm, clearAddCategoryForm } from './clearForms.js';
-
-const toggleAddTodoMenu = () => {
-  const addNewTodoMenu = document.querySelector('.add-new-todo-container');
-  if (addNewTodoMenu.classList.contains('show-add-new-todo')) {
-    clearAddTodoForm();
-  }
-  addNewTodoMenu.classList.toggle('show-add-new-todo');
-};
+import { flashError } from './flashError.js';
 
 const toggleEditTodoMenu = () => {
   const editExistingTodoMenu = document.querySelector('.edit-existing-todo-container');
@@ -41,12 +34,25 @@ const toggleAddCategoryMenu = () => {
   addCategoryMenu.classList.toggle('show-add-category-popup');
 };
 
+const toggleAddTodoMenu = () => {
+  const addNewTodoMenu = document.querySelector('.add-new-todo-container');
+  if (addNewTodoMenu.classList.contains('show-add-new-todo')) {
+    clearAddTodoForm();
+  }
+  addNewTodoMenu.classList.toggle('show-add-new-todo');
+};
+
 const addTodoMenu = () => {
   const addTodoMenuBtns = document.querySelectorAll('.add-todo-btn, .cancel-add-new-todo-button');
 
   addTodoMenuBtns.forEach((addTodoMenuBtn) => {
     addTodoMenuBtn.addEventListener('click', () => {
-      toggleAddTodoMenu();
+      const categoriesArray = JSON.parse(localStorage.getItem('categoriesArray'));
+      if (categoriesArray.every((category) => category.category === null)) {
+        flashError('You Must Create A Category Before You Can Add A Todo');
+      } else {
+        toggleAddTodoMenu();
+      }
     });
   });
 };
