@@ -1,5 +1,5 @@
 import iso from './isotope.js';
-import { todosArray, categoriesArray } from './database.js';
+import { getTodosArray, getCategoriesArray } from './database.js';
 import { setTodoMenu, setDeleteTodoMenu } from './toggleMenus.js';
 import { setEditTodoMenu } from './toggleForms.js';
 import { setDoneCheckboxes } from './todosController.js'; // eslint-disable-line
@@ -106,8 +106,8 @@ const displayTodo = (categoryTitle, categoryDot, todoTitle, todoDescription) => 
 };
 
 const displayAllTodos = () => {
-  todosArray.forEach((todo) => {
-    const categoryIndex = categoriesArray
+  getTodosArray().forEach((todo) => {
+    const categoryIndex = getCategoriesArray()
       .findIndex((category) => category.category === todo.todoCategory) + 1;
     iso.insert(createTodoElement(
       todo.todoCategory,

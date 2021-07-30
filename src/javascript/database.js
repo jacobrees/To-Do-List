@@ -15,18 +15,14 @@ const startDatabase = () => {
   }
 };
 
-const categoriesArray = JSON.parse(localStorage.getItem('categoriesArray')) || [{ category: 'default' }, { category: null }, { category: null }, { category: null }];
+const getCategoriesArray = () => JSON.parse(localStorage.getItem('categoriesArray'));
 
 const setCategoriesArray = (index, category) => {
-  const setArray = [...categoriesArray];
+  const setArray = [...JSON.parse(localStorage.getItem('categoriesArray'))];
   setArray[index] = category;
 
   localStorage.setItem('categoriesArray', JSON.stringify(setArray));
 };
-
-const todosArray = JSON.parse(localStorage.getItem('todosArray')) || [{
-  todoTitle: 'Default Todo', todoDescription: 'This is a default todo.', todoCategory: 'default', todoDone: false,
-}];
 
 const getTodosArray = () => JSON.parse(localStorage.getItem('todosArray'));
 
@@ -84,8 +80,7 @@ const deleteAllDoneTodosInArray = () => {
 };
 
 export {
-  categoriesArray,
-  todosArray,
+  getCategoriesArray,
   getTodosArray,
   setCategoriesArray,
   startDatabase,

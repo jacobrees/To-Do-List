@@ -1,6 +1,6 @@
 import { displayTodo } from './displayTodos.js'; // eslint-disable-line
 import {
-  addTodoToArray, categoriesArray, deleteTodoFromArray,
+  addTodoToArray, getCategoriesArray, deleteTodoFromArray,
   editTodoInArray, toggleTodoDoneInArray, deleteAllDoneTodosInArray, getTodosArray,
 } from './database.js';
 import { toggleAddTodoMenu, toggleEditTodoMenu } from './toggleForms.js';
@@ -21,7 +21,7 @@ const addTodo = (title, description, category, done) => {
     done,
   );
   addTodoToArray(todo);
-  const categoryIndex = categoriesArray
+  const categoryIndex = getCategoriesArray()
     .findIndex((cat) => cat.category === category) + 1;
   displayTodo(
     category,

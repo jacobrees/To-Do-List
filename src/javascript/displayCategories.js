@@ -1,7 +1,9 @@
-import { categoriesArray } from './database.js';
+import { getCategoriesArray } from './database.js';
 import setFlickity from './flickity.js';
 import setAddTodoMenuCategoryBtns from './addTodoCategoryBtns.js';
 import setTodoSortBtns from './sortTodosCategory.js';
+import {setremoveCategoryBtn, setCurrentCategoryListener} from './categoriesController.js'; //eslint-disable-line
+import { setDeleteCategoryMenu } from './toggleMenus.js';
 
 const createSortCategoryElement = (dotColor, categoryName, activeCategory) => {
   const sortCategory = document.createElement('div');
@@ -25,10 +27,16 @@ const createSortCategoryElement = (dotColor, categoryName, activeCategory) => {
 };
 
 const displaySortCategories = () => {
-  const categoriesContainer = document.querySelector('.categories-container');
-  const amountOfNulls = categoriesArray.filter((category) => category.category === null).length;
+  const categoriesContainerOld = document.querySelector('.categories-container');
+  categoriesContainerOld.remove();
+  const categoriesContainer = document.createElement('div');
+  categoriesContainer.classList.add('categories-container');
+  const categoriesSideContainer = document.querySelector('.categories-side-container');
+  categoriesSideContainer.prepend(categoriesContainer);
+  const amountOfNulls = getCategoriesArray()
+    .filter((category) => category.category === null).length;
   if (amountOfNulls > 2) {
-    categoriesArray.forEach((category, index) => {
+    getCategoriesArray().forEach((category, index) => {
       if (category.category) {
         categoriesContainer
           .appendChild(createSortCategoryElement(index + 1, category.category, true));
@@ -38,7 +46,7 @@ const displaySortCategories = () => {
     categoriesContainer
       .appendChild(createSortCategoryElement('-all', 'all', true));
 
-    categoriesArray.forEach((category, index) => {
+    getCategoriesArray().forEach((category, index) => {
       if (category.category) {
         categoriesContainer
           .appendChild(createSortCategoryElement(index + 1, category.category, false));
@@ -65,8 +73,13 @@ const createAddCategoryElement = (dotColor, categoryName) => {
 };
 
 const displayAddTodoCategories = () => {
-  const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
-  categoriesArray.forEach((category, index) => {
+  const addTodoCategoriesContainerOld = document.querySelector('.add-todo-categories');
+  addTodoCategoriesContainerOld.remove();
+  const addTodoCategoriesContainer = document.createElement('div');
+  addTodoCategoriesContainer.classList.add('add-todo-categories');
+  const addTodoBox = document.querySelector('.add-new-todo-box');
+  addTodoBox.appendChild(addTodoCategoriesContainer);
+  getCategoriesArray().forEach((category, index) => {
     if (category.category) {
       addTodoCategoriesContainer
         .appendChild(createAddCategoryElement(index + 1, category.category));
@@ -105,8 +118,14 @@ const createEditCategoryElement = (dotColor, categoryName) => {
 };
 
 const displayEditCategories = () => {
-  const editCategoriesContainer = document.querySelector('.edit-categories-btns-container');
-  categoriesArray.forEach((category, index) => {
+  const editCategoriesContainerOld = document.querySelector('.edit-categories-btns-container');
+  editCategoriesContainerOld.remove();
+  const editCategoriesContainer = document.createElement('div');
+  editCategoriesContainer.classList.add('edit-categories-btns-container');
+  const editCategoriesBox = document.querySelector('.edit-categories-box');
+  editCategoriesBox.appendChild(editCategoriesContainer);
+
+  getCategoriesArray().forEach((category, index) => {
     if (category.category) {
       editCategoriesContainer
         .appendChild(createEditCategoryElement(index + 1, category.category));
@@ -121,6 +140,9 @@ const displayCategories = () => {
   displayAddTodoCategories();
   setAddTodoMenuCategoryBtns();
   displayEditCategories();
+  setremoveCategoryBtn();
+  setCurrentCategoryListener();
+  setDeleteCategoryMenu();
 };
 
 export default displayCategories;

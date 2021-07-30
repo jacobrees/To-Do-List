@@ -69,23 +69,41 @@ const setEditCategoriesMenu = () => {
   });
 };
 
-const setDeleteCategoryMenu = () => {
-  const deleteCategoryMenuBtns = document.querySelectorAll('.delete-category-btn, .cancel-delete-category-button');
+const toggleDeleteCategoryMenu = () => {
   const deleteCategoryMenu = document.querySelector('.delete-category-popup-container');
+  deleteCategoryMenu.classList.toggle('show-delete-category-popup');
+};
+
+const setDeleteCategoryMenu = () => {
+  const deleteCategoryMenuBtns = document.querySelectorAll('.delete-category-btn');
 
   deleteCategoryMenuBtns.forEach((deleteCategoryMenuBtn) => {
     deleteCategoryMenuBtn.addEventListener('click', () => {
-      deleteCategoryMenu.classList.toggle('show-delete-category-popup');
+      toggleDeleteCategoryMenu();
     });
+  });
+};
+
+const setDeleteCategoryMenuCancelBtn = () => {
+  const deleteCategoryMenuBtnCancel = document.querySelector('.cancel-delete-category-button');
+
+  deleteCategoryMenuBtnCancel.addEventListener('click', () => {
+    toggleDeleteCategoryMenu();
   });
 };
 
 const setToggleMenus = () => {
   setDeleteAllTodoMenu();
   setEditCategoriesMenu();
-  setDeleteCategoryMenu();
+  setDeleteCategoryMenuCancelBtn();
 };
 
 export {
-  setToggleMenus, setTodoMenu, setDeleteTodoMenu, toggleDeleteTodoMenu, toggleDeleteAllTodoMenu,
+  setToggleMenus,
+  setTodoMenu,
+  setDeleteTodoMenu,
+  toggleDeleteTodoMenu,
+  toggleDeleteCategoryMenu,
+  toggleDeleteAllTodoMenu,
+  setDeleteCategoryMenu,
 };

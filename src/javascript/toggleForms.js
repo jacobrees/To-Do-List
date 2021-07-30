@@ -1,6 +1,6 @@
 import { clearEditTodoForm, clearAddTodoForm, clearAddCategoryForm } from './clearForms.js';
 import { flashError } from './flashError.js';
-import { categoriesArray } from './database.js';
+import { getCategoriesArray } from './database.js';
 
 const toggleEditTodoMenu = () => {
   const editExistingTodoMenu = document.querySelector('.edit-existing-todo-container');
@@ -48,7 +48,7 @@ const addTodoMenu = () => {
 
   addTodoMenuBtns.forEach((addTodoMenuBtn) => {
     addTodoMenuBtn.addEventListener('click', () => {
-      if (categoriesArray.every((category) => category.category === null)) {
+      if (getCategoriesArray().every((category) => category.category === null)) {
         flashError('You Must Create A Category Before You Can Add A Todo');
       } else {
         toggleAddTodoMenu();
@@ -89,5 +89,5 @@ const setToggleForms = () => {
 };
 
 export {
-  setToggleForms, setEditTodoMenu, toggleAddTodoMenu, toggleEditTodoMenu,
+  setToggleForms, setEditTodoMenu, toggleAddTodoMenu, toggleEditTodoMenu, toggleAddCategoryMenu,
 };

@@ -30,10 +30,6 @@ const clearAddCategoryForm = () => {
   }, 250);
 };
 
-const clearAddCategoryFormFast = () => {
-  addCategoryInput.value = '';
-};
-
 export {
-  clearEditTodoForm, clearAddTodoForm, clearAddCategoryForm, clearAddCategoryFormFast,
+  clearEditTodoForm, clearAddTodoForm, clearAddCategoryForm,
 };

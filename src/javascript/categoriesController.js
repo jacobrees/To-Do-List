@@ -1,19 +1,21 @@
-import { categoriesArray, setCategoriesArray, deleteAllTodosInCategory } from './database.js';
-import { toggleLoadingScreen } from './startScreen.js';
+import { getCategoriesArray, setCategoriesArray, deleteAllTodosInCategory } from './database.js';
 import { formatCategoryTitle } from './formatText.js';
 import { flashError } from './flashError.js';
-import { clearAddCategoryFormFast } from './clearForms.js';
-
-const firstNull = categoriesArray.findIndex((category) => category.category === null);
+import { toggleLoadingScreen } from './startScreen.js';
+import displayCategories from './displayCategories.js'; //eslint-disable-line
+import iso from './isotope.js';
+import { toggleAddCategoryMenu } from './toggleForms.js';
+import { toggleDeleteCategoryMenu } from './toggleMenus.js';
 
 const addCategory = (category) => {
   const createCategory = (category) => ({ category });
-
+  const firstNull = getCategoriesArray().findIndex((category) => category.category === null);
   if (firstNull !== -1) {
     const newCategory = createCategory(category);
     setCategoriesArray(firstNull, newCategory);
     toggleLoadingScreen();
-    setTimeout(() => { clearAddCategoryFormFast(); window.location.reload(); }, 550);
+    toggleAddCategoryMenu();
+    setTimeout(() => { displayCategories(); iso.arrange({ filter: '*' }); toggleLoadingScreen(); }, 550);
   }
 };
 
@@ -22,9 +24,10 @@ const setAddCategoryBtn = () => {
   const categoryNameInput = document.querySelector('#add-category-title');
   addCategoryBtn.addEventListener('click', () => {
     const categoryName = formatCategoryTitle(categoryNameInput.value);
+    const firstNull = getCategoriesArray().findIndex((category) => category.category === null);
     if (firstNull === -1) {
       flashError('You Cannot Have More Than 4 Categories');
-    } else if (categoriesArray.some((category) => category.category === categoryName)) {
+    } else if (getCategoriesArray().some((category) => category.category === categoryName)) {
       flashError('Category Cannot Have Same Name As Existing Category');
     } else if (categoryName.includes(' ')) {
       flashError('Category Name Cannot Contain Spaces Between Letters');
@@ -52,13 +55,26 @@ const setCurrentCategoryListener = () => {
 };
 
 const removeCategory = () => {
-  const currentCategoryIndex = categoriesArray
+  const currentCategoryIndex = getCategoriesArray()
     .findIndex((category) => category.category === currentCategory);
   if (currentCategoryIndex !== -1) {
     setCategoriesArray(currentCategoryIndex, { category: null });
-    deleteAllTodosInCategory(currentCategory);
+
     toggleLoadingScreen();
-    setTimeout(() => { window.location.reload(); }, 550);
+    toggleDeleteCategoryMenu();
+    setTimeout(() => {
+      displayCategories();
+      deleteAllTodosInCategory(currentCategory);
+      iso.arrange({ filter: '*' });
+      const allTodos = document.querySelectorAll('.todo');
+      allTodos.forEach((todo) => {
+        if (todo.classList.contains(currentCategory)) {
+          iso.remove(todo);
+          iso.layout();
+        }
+      });
+      toggleLoadingScreen();
+    }, 550);
   }
 };
 
@@ -71,8 +87,6 @@ const setremoveCategoryBtn = () => {
 
 const setCategoriesController = () => {
   setAddCategoryBtn();
-  setCurrentCategoryListener();
-  setremoveCategoryBtn();
 };
 
-export default setCategoriesController;
+export { setCategoriesController, setremoveCategoryBtn, setCurrentCategoryListener };
