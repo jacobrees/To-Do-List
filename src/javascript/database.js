@@ -28,6 +28,8 @@ const todosArray = JSON.parse(localStorage.getItem('todosArray')) || [{
   todoTitle: 'Default Todo', todoDescription: 'This is a default todo.', todoCategory: 'default', todoDone: false,
 }];
 
+const getTodosArray = () => JSON.parse(localStorage.getItem('todosArray'));
+
 const addTodoToArray = (todo) => {
   const setArray = [...JSON.parse(localStorage.getItem('todosArray'))];
   setArray[setArray.length] = todo;
@@ -84,6 +86,7 @@ const deleteAllDoneTodosInArray = () => {
 export {
   categoriesArray,
   todosArray,
+  getTodosArray,
   setCategoriesArray,
   startDatabase,
   addTodoToArray,

@@ -1,7 +1,7 @@
 import { displayTodo } from './displayTodos.js'; // eslint-disable-line
 import {
   addTodoToArray, categoriesArray, deleteTodoFromArray,
-  editTodoInArray, toggleTodoDoneInArray, deleteAllDoneTodosInArray,
+  editTodoInArray, toggleTodoDoneInArray, deleteAllDoneTodosInArray, getTodosArray,
 } from './database.js';
 import { toggleAddTodoMenu, toggleEditTodoMenu } from './toggleForms.js';
 import { toggleDeleteTodoMenu, toggleDeleteAllTodoMenu } from './toggleMenus.js';
@@ -45,7 +45,7 @@ const setAddTodoListener = () => {
         activeCategory = addCategoryBtn;
       }
     });
-    const todosArray = JSON.parse(localStorage.getItem('todosArray'));
+    const todosArray = getTodosArray();
     if (todosArray.length === 30) {
       flashError('You Cannot Have More Than 30 Todos');
     } else if (todosArray.some((todo) => todo.todoTitle === todoTitleInput)) {
@@ -99,7 +99,7 @@ const setEditTodoListener = () => {
     const todoDescription = currentTodo.childNodes[0].childNodes[1].childNodes[0];
     const newTodoTitle = formatTodoTitle(document.querySelector('#edit-todo-title').value);
     const newTodoDescription = formatTodoDescription(document.querySelector('#edit-todo-description').value);
-    const todosArray = JSON.parse(localStorage.getItem('todosArray'));
+    const todosArray = getTodosArray();
     if (newTodoTitle !== todoTitle.textContent
       && newTodoDescription === todoDescription.textContent) {
       if (todosArray.some((todo) => todo.todoTitle === newTodoTitle)) {
