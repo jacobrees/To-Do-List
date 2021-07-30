@@ -1,6 +1,6 @@
 import { clearEditTodoForm, clearAddTodoForm, clearAddCategoryForm } from './clearForms.js';
 import { flashError } from './flashError.js';
-import {categoriesArray} from './database.js'
+import { categoriesArray } from './database.js';
 
 const toggleEditTodoMenu = () => {
   const editExistingTodoMenu = document.querySelector('.edit-existing-todo-container');
