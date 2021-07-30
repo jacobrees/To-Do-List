@@ -1,0 +1,1121 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+$black: #69665c;
+$black-see-through: #69665c60;
+$grey: #b2afa1;
+$light-grey: #f1f1f1;
+$yellow: #fdf9de;
+$white: #fff;
+$blue: #d1e5f7;
+$green: #daf2d6;
+$red: #ffcece;
+$purple: #d2ceff;
+$fade: all 0.25s ease-in;
+$slow-fade: all 0.5s ease-in;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* XL devices (default) */
+
+.loading-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  transition: $slow-fade;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-screen-text {
+  color: $black;
+  font-size: 48px;
+}
+
+.focus-in-contract {
+  animation: focus-in-contract 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2 alternate both;
+}
+
+@keyframes focus-in-contract {
+  0% {
+    letter-spacing: 1em;
+    filter: blur(12px);
+    opacity: 0;
+  }
+
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.hide-loading-screen {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.start-screen-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  z-index: 988;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: $fade;
+}
+
+.start-screen-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 380px;
+}
+
+.start-screen-title {
+  font-size: 77px;
+
+  .blue {
+    color: $blue;
+  }
+
+  .red {
+    color: $red;
+  }
+
+  .green {
+    color: $green;
+  }
+
+  .purple {
+    color: $purple;
+  }
+}
+
+.start-screen-text {
+  color: $black;
+  text-align: center;
+  margin: 10px 20px 30px;
+}
+
+.start-screen-btn {
+  color: $white;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 13px 35px;
+  border: none;
+  background-color: $black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hide-start-screen {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.app-container {
+  width: 92%;
+  max-width: 1150px;
+  margin: 90px auto;
+}
+
+.navbar {
+  width: 92vw;
+  max-width: 1150px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 20px;
+  margin-bottom: 35px;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+}
+
+.nav-logo {
+  color: $black;
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.add-todo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-todo-btn-svg {
+  fill: $black;
+  width: 32px;
+  height: 32px;
+}
+
+.main-container {
+  display: flex;
+}
+
+.categories-side-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.categories-container {
+  min-width: 225px;
+  max-width: 250px;
+  width: auto;
+  height: auto;
+  align-self: flex-start;
+
+  &::after {
+    content: '';
+  }
+}
+
+.category {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.category-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: $fade;
+}
+
+.category-title {
+  color: $black;
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.dot {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-all {
+  background-color: $black;
+}
+
+.dot1 {
+  background-color: $purple;
+}
+
+.dot2 {
+  background-color: $blue;
+}
+
+.dot3 {
+  background-color: $red;
+}
+
+.dot4 {
+  background-color: $green;
+}
+
+.option {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.option:nth-last-of-type(2) {
+  margin-top: 0;
+}
+
+.options {
+  position: sticky;
+  top: 100px;
+}
+
+.options-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.options-title {
+  color: $black;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.options-svg {
+  height: 24px;
+  width: 24px;
+  fill: $black;
+}
+
+.arrow-btn {
+  display: none;
+}
+
+.todos-container {
+  width: 100%;
+  height: auto;
+}
+
+.todo {
+  background-color: $yellow;
+  width: 47%;
+  margin: 0 auto 20px;
+  border-radius: 3px;
+  height: auto;
+  position: relative;
+}
+
+.todo-options {
+  width: 140px;
+  height: 75px;
+  border: 1px solid $grey;
+  background-color: $white;
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  opacity: 0;
+  transition: $fade;
+}
+
+.show-todo-options {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.todo-options-btn {
+  height: 50%;
+  border: none;
+  background: none;
+  border-bottom: 1px solid $grey;
+  cursor: pointer;
+  color: $black;
+  text-align: start;
+  padding-left: 20px;
+}
+
+.todo-content {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.todo-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-title {
+  color: $black;
+}
+
+.todo-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  fill: $black;
+}
+
+.todo-meatball {
+  width: 30px;
+  height: 19px;
+}
+
+.todo-paragraph {
+  margin: 15px 0 20px;
+  color: $black;
+}
+
+.todo-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.done {
+  text-decoration: line-through;
+  text-decoration-color: $black;
+}
+
+.add-new-todo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow-y: scroll;
+  transition: $fade;
+}
+
+.show-add-new-todo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.add-new-todo-box {
+  width: 100%;
+  height: auto;
+  max-width: 650px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 90px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 50px;
+}
+
+.add-new-todo-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-new-todo-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cancel-add-new-todo-button {
+  text-align: start;
+  background: none;
+  color: $black;
+  font-size: 15px;
+}
+
+.add-add-new-todo-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
+}
+
+.todo-input-label {
+  font-weight: bold;
+  color: $black;
+  font-size: 18px;
+  margin: 22px 0 7px;
+}
+
+.todo-input {
+  border: none;
+  background-color: $light-grey;
+  padding: 12px;
+  border-radius: 5px;
+  color: $black;
+}
+
+#add-todo-description {
+  height: 100px;
+}
+
+.add-todo-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.category-option {
+  margin: 10px;
+}
+
+.active-category {
+  background-color: $light-grey;
+}
+
+.edit-existing-todo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow-y: scroll;
+  transition: $fade;
+}
+
+.show-edit-existing-todo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.edit-existing-todo-box {
+  width: 100%;
+  height: auto;
+  max-width: 650px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 90px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 50px;
+}
+
+.edit-existing-todo-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-existing-todo-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cancel-edit-existing-todo-button {
+  text-align: start;
+  background: none;
+  color: $black;
+  font-size: 15px;
+}
+
+.add-edit-existing-todo-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
+}
+
+#edit-todo-description {
+  height: 100px;
+}
+
+.delete-todo-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow-y: scroll;
+  transition: $fade;
+}
+
+.show-delete-todo-popup {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.delete-todo-popup-box {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 90px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 50px 20px;
+}
+
+.delete-todo-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-todo-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cancel-delete-todo-button {
+  text-align: start;
+  background: none;
+  color: $black;
+  font-size: 15px;
+}
+
+.delete-todo-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
+}
+
+.delete-todo-text {
+  color: $black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 10px;
+  text-align: center;
+}
+
+.delete-all-todo-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow-y: scroll;
+  transition: $fade;
+}
+
+.show-delete-all-todo-popup {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.delete-all-todo-popup-box {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 90px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 50px 20px;
+}
+
+.delete-all-todo-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-all-todo-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cancel-delete-all-todo-button {
+  text-align: start;
+  background: none;
+  color: $black;
+  font-size: 15px;
+}
+
+.delete-all-todo-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
+}
+
+.delete-all-todo-text {
+  color: $black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 10px;
+  text-align: center;
+}
+
+.edit-categories-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow-y: scroll;
+  transition: $fade;
+}
+
+.show-edit-categories {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.edit-categories-box {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 40px 50px;
+}
+
+.edit-categories-btns-container {
+  width: 100%;
+}
+
+.edit-categories-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-categories-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cancel-edit-categories-button {
+  text-align: start;
+  background: none;
+  color: $black;
+  font-size: 15px;
+}
+
+.add-category-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
+}
+
+.edit-categories-title {
+  font-weight: bold;
+  color: $black;
+  font-size: 18px;
+  margin: 22px 0;
+}
+
+.edit-category {
+  margin: 0 0 13px;
+  padding-bottom: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $grey;
+  width: 100%;
+}
+
+.edit-category-container {
+  display: flex;
+  align-items: center;
+}
+
+.add-category-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow-y: scroll;
+  transition: $fade;
+}
+
+.show-add-category-popup {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.add-category-popup-box {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 90px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px 20px;
+}
+
+.add-category-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-category-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cancel-add-category-button {
+  text-align: start;
+  background: none;
+  color: $black;
+  font-size: 15px;
+}
+
+.add-add-category-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
+}
+
+.delete-category-btn {
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  margin: 0 7px 0 0;
+  cursor: pointer;
+}
+
+.delete-category-svg {
+  transform: scale(0.7);
+  fill: $black;
+}
+
+.delete-category-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow-y: scroll;
+  transition: $fade;
+}
+
+.show-delete-category-popup {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.delete-category-popup-box {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 90px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 50px 20px;
+}
+
+.delete-category-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-category-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cancel-delete-category-button {
+  text-align: start;
+  background: none;
+  color: $black;
+  font-size: 15px;
+}
+
+.delete-category-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
+}
+
+.delete-category-text {
+  color: $black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 10px;
+  text-align: center;
+}
+
+.flash-error-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-see-through;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow-y: scroll;
+  transition: $fade;
+}
+
+.flash-error-todo-popup {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.flash-error-popup-box {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+  background-color: $white;
+  border-radius: 15px;
+  z-index: 20;
+  border: 1px solid $grey;
+  box-shadow: 0 5px 15px -7px $black;
+  margin: 90px auto 90px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px 10px;
+}
+
+.flash-error-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.flash-error-buttons {
+  height: 40px;
+  width: 115px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.flash-error-button {
+  background-color: $black;
+  font-weight: bold;
+  font-size: 14px;
+  color: $white;
+}
+
+.flash-error-text {
+  color: $black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 20px;
+  text-align: center;
+}
+
+/* Large devices */
+@media only screen and (max-width: 1199.98px) {
+  /* ...code... */
+}
+
+/* Medium devices */
+@media only screen and (max-width: 991.98px) {
+  .todo {
+    width: 100%;
+  }
+}
+
+/* Small devices */
+@media only screen and (max-width: 767.98px) {
+  .app-container {
+    margin-top: 120px;
+  }
+
+  .main-container {
+    flex-direction: column;
+  }
+
+  .categories-container {
+    width: 92%;
+    height: auto;
+    max-width: none;
+    position: fixed;
+    top: 50px;
+    background-color: $white;
+    z-index: 11;
+    padding: 0;
+
+    &::after {
+      content: 'flickity';
+      display: none;
+    }
+  }
+
+  .flickity-prev-next-button:disabled { display: none; }
+
+  .category {
+    margin: 10px 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .categories-side-container {
+    position: relative;
+  }
+
+  .options {
+    width: 92vw;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: $white;
+    z-index: 20;
+  }
+
+  .option {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .option:nth-last-of-type(2) {
+    margin-top: 0;
+  }
+
+  .options-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 20px 0;
+  }
+
+  .show-categories-btn-container {
+    display: none;
+  }
+
+  .todo {
+    width: 100%;
+  }
+
+  .category-title {
+    margin-right: 10px;
+  }
+
+  .add-new-todo-box {
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 10px 15px;
+  }
+
+  .add-todo-categories {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .edit-existing-todo-box {
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 10px 15px;
+  }
+
+  .delete-todo-popup-box {
+    padding: 10px 15px;
+  }
+
+  .delete-all-todo-popup-box {
+    padding: 10px 15px;
+  }
+
+  .edit-categories-box {
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 10px 15px;
+  }
+
+  .add-category-popup-box {
+    padding: 25px 15px;
+  }
+
+  .flash-error-box {
+    padding: 10px 15px;
+  }
+
+  .flash-error-popup-box {
+    padding: 10px 15px;
+  }
+}
