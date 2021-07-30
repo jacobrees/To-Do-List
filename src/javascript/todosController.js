@@ -51,11 +51,11 @@ const setAddTodoListener = () => {
     } else if (todosArray.some((todo) => todo.todoTitle === todoTitleInput)) {
       flashError('Todo Cannot Have Same Title As Existing Todo');
     } else if (todoTitleInput.length < 10) {
-      flashError('Todo Name Cannot Be Less Than 10 Characters Long');
+      flashError('Todo Title Cannot Be Less Than 10 Characters Long');
     } else if (todoTitleInput.length > 40) {
-      flashError('Todo Name Cannot Be Greater Than 40 Characters Long');
+      flashError('Todo Title Cannot Be Greater Than 40 Characters Long');
     } else if (/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(todoTitleInput)) {
-      flashError('Todo Name Cannot Contain Any Special Characters');
+      flashError('Todo Title Cannot Contain Any Special Characters');
     } else if (todoDescriptionInput.length < 20) {
       flashError('Todo Description Cannot Be Less Than 20 Characters Long');
     } else if (todoDescriptionInput.length > 300) {
@@ -105,11 +105,11 @@ const setEditTodoListener = () => {
       if (todosArray.some((todo) => todo.todoTitle === newTodoTitle)) {
         flashError('Todo Cannot Have Same Title As Existing Todo');
       } else if (newTodoTitle.length < 10) {
-        flashError('Todo Name Cannot Be Less Than 10 Characters Long');
+        flashError('Todo Title Cannot Be Less Than 10 Characters Long');
       } else if (newTodoTitle.length > 40) {
-        flashError('Todo Name Cannot Be Greater Than 40 Characters Long');
+        flashError('Todo Title Cannot Be Greater Than 40 Characters Long');
       } else if (/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(newTodoTitle)) {
-        flashError('Todo Name Cannot Contain Any Special Characters');
+        flashError('Todo Title Cannot Contain Any Special Characters');
       } else {
         editTodo(todoTitle, todoDescription, newTodoTitle, newTodoDescription);
       }
@@ -127,11 +127,11 @@ const setEditTodoListener = () => {
       if (todosArray.some((todo) => todo.todoTitle === newTodoTitle)) {
         flashError('Todo Cannot Have Same Title As Existing Todo');
       } else if (newTodoTitle.length < 10) {
-        flashError('Todo Name Cannot Be Less Than 10 Characters Long');
+        flashError('Todo Title Cannot Be Less Than 10 Characters Long');
       } else if (newTodoTitle.length > 40) {
-        flashError('Todo Name Cannot Be Greater Than 40 Characters Long');
+        flashError('Todo Title Cannot Be Greater Than 40 Characters Long');
       } else if (/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(newTodoTitle)) {
-        flashError('Todo Name Cannot Contain Any Special Characters');
+        flashError('Todo Title Cannot Contain Any Special Characters');
       } else if (newTodoDescription.length < 20) {
         flashError('Todo Description Cannot Be Less Than 20 Characters Long');
       } else if (newTodoDescription.length > 300) {

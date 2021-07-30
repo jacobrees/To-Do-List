@@ -28,15 +28,15 @@ const setAddCategoryBtn = () => {
     if (firstNull === -1) {
       flashError('You Cannot Have More Than 4 Categories');
     } else if (getCategoriesArray().some((category) => category.category === categoryName)) {
-      flashError('Category Cannot Have Same Name As Existing Category');
+      flashError('Category Cannot Have Same Title As Existing Category');
     } else if (categoryName.includes(' ')) {
-      flashError('Category Name Cannot Contain Spaces Between Letters');
+      flashError('Category Title Cannot Contain Spaces Between Letters');
     } else if (categoryName.length < 3) {
-      flashError('Category Name Cannot Be Less Than 3 Letters Long');
+      flashError('Category Title Cannot Be Less Than 3 Letters Long');
     } else if (categoryName.length > 15) {
-      flashError('Category Name Cannot Be Greater Than 15 Letters Long');
+      flashError('Category Title Cannot Be Greater Than 15 Letters Long');
     } else if (/[^a-z]/i.test(categoryName)) {
-      flashError('Category Name Can Only Contain Letters');
+      flashError('Category Title Can Only Contain Letters');
     } else {
       addCategory(categoryName);
     }
