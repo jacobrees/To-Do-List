@@ -44,6 +44,12 @@ $ google-chrome index.html
 
 Below are a list of scripts you can use with Webpack.
 
+run `npm install` to install all packages associated with project. You will need to do this before you can run any of the other commands listed below.
+
+```
+$ npm install
+```
+
 run `npm start` to start a development server.
 
 ```
