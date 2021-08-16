@@ -1,11 +1,13 @@
 const setFlickity = () => {
   const carousel = document.querySelector('.categories-container');
   const flkty = new Flickity(carousel, { // eslint-disable-line
-    draggable: false,
+    contain: false,
+    percentPosition: true,
+    freeScroll: true,
     watchCSS: true,
+    cellAlign: 'center',
     prevNextButtons: true,
     pageDots: false,
-    fade: true,
   });
 };
 

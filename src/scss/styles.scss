@@ -987,7 +987,7 @@ $slow-fade: all 0.5s ease-in;
 }
 
 /* Small devices */
-@media only screen and (max-width: 767.98px) {
+@media only screen and (max-width: 607.98px) {
   .app-container {
     margin-top: 120px;
   }
@@ -1023,7 +1023,7 @@ $slow-fade: all 0.5s ease-in;
   }
 
   .category {
-    width: 100%;
+    min-width: 100%;
     margin: 10px 0;
     height: 40px;
     display: flex;
