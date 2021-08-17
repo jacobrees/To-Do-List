@@ -1,6 +1,7 @@
 const setFlickity = () => {
-  const carousel = document.querySelector('.categories-container');
-  const flkty = new Flickity(carousel, { // eslint-disable-line
+  const Flickity = require('flickity'); // eslint-disable-line
+  const carousel = document.querySelector('.categories-container'); // eslint-disable-line
+  var flkty = new Flickity(carousel, { // eslint-disable-line
     contain: false,
     percentPosition: true,
     freeScroll: true,
