@@ -2,8 +2,8 @@ import { getCategoriesArray, setCategoriesArray, deleteAllTodosInCategory } from
 import { formatCategoryTitle } from './formatText.js';
 import { flashError } from './flashError.js';
 import { toggleLoadingScreen } from './startScreen.js';
-import displayCategories from './displayCategories.js'; //eslint-disable-line
-import iso from './isotope.js';
+import displayCategories from './displayCategories.js';
+import { iso } from '../index.js';
 import { toggleAddCategoryMenu } from './toggleForms.js';
 import { toggleDeleteCategoryMenu } from './toggleMenus.js';
 

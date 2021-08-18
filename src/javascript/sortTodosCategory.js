@@ -1,4 +1,4 @@
-import iso from './isotope.js';
+import { iso } from '../index.js';
 
 const setTodoSortBtns = () => {
   const sortCategoryBtns = document.querySelectorAll('.category-btn-sort');

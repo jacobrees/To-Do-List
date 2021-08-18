@@ -1,11 +1,11 @@
-import { displayTodo } from './displayTodos.js'; // eslint-disable-line
+import { displayTodo } from './displayTodos.js';
 import {
   addTodoToArray, getCategoriesArray, deleteTodoFromArray,
   editTodoInArray, toggleTodoDoneInArray, deleteAllDoneTodosInArray, getTodosArray,
 } from './database.js';
 import { toggleAddTodoMenu, toggleEditTodoMenu } from './toggleForms.js';
 import { toggleDeleteTodoMenu, toggleDeleteAllTodoMenu } from './toggleMenus.js';
-import iso from './isotope.js';
+import { iso } from '../index.js';
 import { formatTodoTitle, formatTodoDescription } from './formatText.js';
 import { flashError } from './flashError.js';
 

@@ -1,9 +1,26 @@
 import { getCategoriesArray } from './database.js';
-import setFlickity from './flickity.js';
+import { flkty } from '../index.js';
 import setAddTodoMenuCategoryBtns from './addTodoCategoryBtns.js';
 import setTodoSortBtns from './sortTodosCategory.js';
-import {setremoveCategoryBtn, setCurrentCategoryListener} from './categoriesController.js'; //eslint-disable-line
+import { setremoveCategoryBtn, setCurrentCategoryListener } from './categoriesController.js';
 import { setDeleteCategoryMenu } from './toggleMenus.js';
+
+const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
+const editCategoriesContainer = document.querySelector('.edit-categories-btns-container');
+
+const clearCategories = () => {
+  if (flkty.getCellElements()) {
+    flkty.remove(flkty.getCellElements());
+  }
+
+  while (addTodoCategoriesContainer.firstChild) {
+    addTodoCategoriesContainer.removeChild(addTodoCategoriesContainer.firstChild);
+  }
+
+  while (editCategoriesContainer.firstChild) {
+    editCategoriesContainer.removeChild(editCategoriesContainer.firstChild);
+  }
+};
 
 const createSortCategoryElement = (dotColor, categoryName, activeCategory) => {
   const sortCategory = document.createElement('div');
@@ -27,32 +44,24 @@ const createSortCategoryElement = (dotColor, categoryName, activeCategory) => {
 };
 
 const displaySortCategories = () => {
-  const categoriesContainerOld = document.querySelector('.categories-container');
-  categoriesContainerOld.remove();
-  const categoriesContainer = document.createElement('div');
-  categoriesContainer.classList.add('categories-container');
-  const categoriesSideContainer = document.querySelector('.categories-side-container');
-  categoriesSideContainer.prepend(categoriesContainer);
   const amountOfNulls = getCategoriesArray()
     .filter((category) => category.category === null).length;
   if (amountOfNulls > 2) {
     getCategoriesArray().forEach((category, index) => {
       if (category.category) {
-        categoriesContainer
-          .appendChild(createSortCategoryElement(index + 1, category.category, true));
+        flkty.append((createSortCategoryElement(index + 1, category.category, true)));
       }
     });
   } else {
-    categoriesContainer
-      .appendChild(createSortCategoryElement('-all', 'all', true));
+    flkty.append((createSortCategoryElement('-all', 'all', true)));
 
     getCategoriesArray().forEach((category, index) => {
       if (category.category) {
-        categoriesContainer
-          .appendChild(createSortCategoryElement(index + 1, category.category, false));
+        flkty.append((createSortCategoryElement(index + 1, category.category, false)));
       }
     });
   }
+  flkty.reloadCells();
 };
 
 const createAddCategoryElement = (dotColor, categoryName) => {
@@ -73,12 +82,6 @@ const createAddCategoryElement = (dotColor, categoryName) => {
 };
 
 const displayAddTodoCategories = () => {
-  const addTodoCategoriesContainerOld = document.querySelector('.add-todo-categories');
-  addTodoCategoriesContainerOld.remove();
-  const addTodoCategoriesContainer = document.createElement('div');
-  addTodoCategoriesContainer.classList.add('add-todo-categories');
-  const addTodoBox = document.querySelector('.add-new-todo-box');
-  addTodoBox.appendChild(addTodoCategoriesContainer);
   getCategoriesArray().forEach((category, index) => {
     if (category.category) {
       addTodoCategoriesContainer
@@ -118,13 +121,6 @@ const createEditCategoryElement = (dotColor, categoryName) => {
 };
 
 const displayEditCategories = () => {
-  const editCategoriesContainerOld = document.querySelector('.edit-categories-btns-container');
-  editCategoriesContainerOld.remove();
-  const editCategoriesContainer = document.createElement('div');
-  editCategoriesContainer.classList.add('edit-categories-btns-container');
-  const editCategoriesBox = document.querySelector('.edit-categories-box');
-  editCategoriesBox.appendChild(editCategoriesContainer);
-
   getCategoriesArray().forEach((category, index) => {
     if (category.category) {
       editCategoriesContainer
@@ -134,8 +130,9 @@ const displayEditCategories = () => {
 };
 
 const displayCategories = () => {
+  clearCategories();
   displaySortCategories();
-  setFlickity();
+  flkty.selectCell(0);
   setTodoSortBtns();
   displayAddTodoCategories();
   setAddTodoMenuCategoryBtns();

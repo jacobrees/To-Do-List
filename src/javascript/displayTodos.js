@@ -1,8 +1,8 @@
-import iso from './isotope.js';
+import { iso } from '../index.js';
 import { getTodosArray, getCategoriesArray } from './database.js';
 import { setTodoMenu, setDeleteTodoMenu } from './toggleMenus.js';
 import { setEditTodoMenu } from './toggleForms.js';
-import { setDoneCheckboxes } from './todosController.js'; // eslint-disable-line
+import { setDoneCheckboxes } from './todosController.js';
 
 const createTodoHeadingElement = (todoTitle, todoDone) => {
   const todoHeadingDiv = document.createElement('div');
