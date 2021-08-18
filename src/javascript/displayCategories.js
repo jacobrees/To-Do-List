@@ -1,16 +1,30 @@
 import { getCategoriesArray } from './database.js';
-import { flkty } from '../index.js';
 import setAddTodoMenuCategoryBtns from './addTodoCategoryBtns.js';
 import setTodoSortBtns from './sortTodosCategory.js';
 import { setremoveCategoryBtn, setCurrentCategoryListener } from './categoriesController.js';
 import { setDeleteCategoryMenu } from './toggleMenus.js';
 
+const Flickity = require('flickity');
+
+const carousel = document.querySelector('.categories-container');
+
+let flkty = new Flickity(carousel, {
+  contain: false,
+  percentPosition: true,
+  freeScroll: true,
+  watchCSS: true,
+  cellAlign: 'center',
+  prevNextButtons: true,
+  pageDots: false,
+});
+
+const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
 const editCategoriesContainer = document.querySelector('.edit-categories-btns-container');
 
 const clearCategories = () => {
-  if (flkty.getCellElements()) {
-    flkty.remove(flkty.getCellElements());
+  while (categoriesContainer.firstChild) {
+    categoriesContainer.removeChild(categoriesContainer.firstChild);
   }
 
   while (addTodoCategoriesContainer.firstChild) {
@@ -49,19 +63,21 @@ const displaySortCategories = () => {
   if (amountOfNulls > 2) {
     getCategoriesArray().forEach((category, index) => {
       if (category.category) {
-        flkty.append((createSortCategoryElement(index + 1, category.category, true)));
+        categoriesContainer
+          .appendChild((createSortCategoryElement(index + 1, category.category, true)));
       }
     });
   } else {
-    flkty.append((createSortCategoryElement('-all', 'all', true)));
+    categoriesContainer
+      .appendChild((createSortCategoryElement('-all', 'all', true)));
 
     getCategoriesArray().forEach((category, index) => {
       if (category.category) {
-        flkty.append((createSortCategoryElement(index + 1, category.category, false)));
+        categoriesContainer
+          .appendChild((createSortCategoryElement(index + 1, category.category, false)));
       }
     });
   }
-  flkty.reloadCells();
 };
 
 const createAddCategoryElement = (dotColor, categoryName) => {
@@ -130,9 +146,18 @@ const displayEditCategories = () => {
 };
 
 const displayCategories = () => {
+  flkty.destroy();
   clearCategories();
   displaySortCategories();
-  flkty.selectCell(0);
+  flkty = new Flickity(carousel, {
+    contain: false,
+    percentPosition: true,
+    freeScroll: true,
+    watchCSS: true,
+    cellAlign: 'center',
+    prevNextButtons: true,
+    pageDots: false,
+  });
   setTodoSortBtns();
   displayAddTodoCategories();
   setAddTodoMenuCategoryBtns();
