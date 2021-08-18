@@ -8,15 +8,17 @@ const Flickity = require('flickity');
 
 const carousel = document.querySelector('.categories-container');
 
-let flkty = new Flickity(carousel, {
+const flktySettings = {
   contain: false,
   percentPosition: true,
-  freeScroll: true,
+  freeScroll: false,
   watchCSS: true,
   cellAlign: 'center',
   prevNextButtons: true,
   pageDots: false,
-});
+};
+
+let flkty = new Flickity(carousel, flktySettings);
 
 const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
@@ -149,15 +151,7 @@ const displayCategories = () => {
   flkty.destroy();
   clearCategories();
   displaySortCategories();
-  flkty = new Flickity(carousel, {
-    contain: false,
-    percentPosition: true,
-    freeScroll: true,
-    watchCSS: true,
-    cellAlign: 'center',
-    prevNextButtons: true,
-    pageDots: false,
-  });
+  flkty = new Flickity(carousel, flktySettings);
   setTodoSortBtns();
   displayAddTodoCategories();
   setAddTodoMenuCategoryBtns();
