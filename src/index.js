@@ -29,6 +29,6 @@ const iso = new Isotope(todoGrid, {
   },
 });
 
-start();
+flkty.on('ready', start());
 
 export { flkty, iso };
