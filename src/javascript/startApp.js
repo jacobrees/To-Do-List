@@ -22,6 +22,7 @@ const start = () => {
   setTodosController();
   displayAllTodos();
   window.addEventListener('load', () => {
+    iso.arrange({ filter: '*' });
     setTimeout(() => {
       toggleLoadingScreen();
     }, 1800);
