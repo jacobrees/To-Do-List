@@ -1,7 +1,7 @@
 import { getCategoriesArray } from './database.js';
 import setAddTodoMenuCategoryBtns from './addTodoCategoryBtns.js';
 import setTodoSortBtns from './sortTodosCategory.js';
-import { setremoveCategoryBtn, setCurrentCategoryListener } from './categoriesController.js';
+import { setremoveCategoryBtn, setCurrentCategoryListener } from './categoriesController.js'; // eslint-disable-line
 import { setDeleteCategoryMenu } from './toggleMenus.js';
 
 const Flickity = require('flickity');

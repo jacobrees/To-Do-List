@@ -1,4 +1,4 @@
-import { displayTodo } from './displayTodos.js';
+import { displayTodo } from './displayTodos.js'; // eslint-disable-line
 import {
   addTodoToArray, getCategoriesArray, deleteTodoFromArray,
   editTodoInArray, toggleTodoDoneInArray, deleteAllDoneTodosInArray, getTodosArray,
