@@ -22,8 +22,11 @@ const start = () => {
   setTodosController();
   displayAllTodos();
   window.addEventListener('load', () => {
-    iso.layout();
+    iso.arrange({ filter: '*' });
     setTimeout(() => {
+      window.scroll({
+        top: 0,
+      });
       toggleLoadingScreen();
     }, 1800);
   });
