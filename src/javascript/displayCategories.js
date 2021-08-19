@@ -148,7 +148,7 @@ const displayEditCategories = () => {
 };
 
 const displayCategories = () => {
-  flkty.destroy()
+  flkty.destroy();
   clearCategories();
   displaySortCategories();
   setTodoSortBtns();

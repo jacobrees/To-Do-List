@@ -25,7 +25,7 @@ const start = () => {
     iso.arrange({ filter: '*' });
     setTimeout(() => {
       window.scroll({
-        top: 0
+        top: 0,
       });
       toggleLoadingScreen();
     }, 1800);
