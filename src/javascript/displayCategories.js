@@ -148,10 +148,9 @@ const displayEditCategories = () => {
 };
 
 const displayCategories = () => {
-  flkty.destroy();
+  flkty.destroy()
   clearCategories();
   displaySortCategories();
-  flkty = new Flickity(carousel, flktySettings);
   setTodoSortBtns();
   displayAddTodoCategories();
   setAddTodoMenuCategoryBtns();
@@ -159,6 +158,7 @@ const displayCategories = () => {
   setremoveCategoryBtn();
   setCurrentCategoryListener();
   setDeleteCategoryMenu();
+  flkty = new Flickity(carousel, flktySettings);
 };
 
 export default displayCategories;
