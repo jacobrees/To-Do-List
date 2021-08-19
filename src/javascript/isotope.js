@@ -1,5 +1,7 @@
+const Isotope = require('isotope-layout');
+
 const todoGrid = document.querySelector('.todos-container');
-const iso = new Isotope(todoGrid, { // eslint-disable-line
+const iso = new Isotope(todoGrid, {
   itemSelector: '.todo',
   percentPosition: true,
   layoutMode: 'masonry',
@@ -9,4 +11,5 @@ const iso = new Isotope(todoGrid, { // eslint-disable-line
     gutter: 10,
   },
 });
+
 export default iso;

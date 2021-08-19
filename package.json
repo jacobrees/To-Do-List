@@ -36,5 +36,9 @@
     "> 1%",
     "iOS 7",
     "last 3 iOS versions"
-  ]
+  ],
+  "dependencies": {
+    "flickity": "^2.2.2",
+    "isotope-layout": "^3.0.6"
+  }
 }
