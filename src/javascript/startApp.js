@@ -23,10 +23,10 @@ const start = () => {
   displayAllTodos();
   window.addEventListener('load', () => {
     iso.arrange({ filter: '*' });
-    window.scroll({
-      top: 0
-    });
     setTimeout(() => {
+      window.scroll({
+        top: 0
+      });
       toggleLoadingScreen();
     }, 1800);
   });
