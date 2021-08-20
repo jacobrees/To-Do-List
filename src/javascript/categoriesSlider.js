@@ -1,11 +1,11 @@
 const nextBtn = document.querySelector('.next-btn');
 const prevBtn = document.querySelector('.prev-btn');
+const slides = () => document.querySelectorAll('.category');
 
 let counter;
 
 const updateNextPrevBtns = () => {
-  const slides = document.querySelectorAll('.category');
-  if (counter < slides.length - 1) {
+  if (counter < slides().length - 1) {
     nextBtn.style.visibility = 'visible';
     nextBtn.style.pointerEvents = 'all';
     nextBtn.style.cursor = 'pointer';
@@ -26,17 +26,14 @@ const updateNextPrevBtns = () => {
 };
 
 const slideCategories = () => {
-  const slides = document.querySelectorAll('.category');
   updateNextPrevBtns();
-  slides.forEach((slide) => {
+  slides().forEach((slide) => {
     slide.style.transform = `translateX(-${counter * 100}%)`;
   });
 };
 
 const setSlides = () => {
-  const slides = document.querySelectorAll('.category');
-
-  slides.forEach((slide, index) => {
+  slides().forEach((slide, index) => {
     slide.style.left = `${index * 100}%`;
   });
   counter = 0;
@@ -59,8 +56,7 @@ const setSliderListeners = () => {
 
   window.addEventListener('resize', () => {
     if (!smallScreenSize.matches) {
-      const slides = document.querySelectorAll('.category');
-      slides.forEach((slide) => {
+      slides().forEach((slide) => {
         slide.style.transform = 'translateX(0%)';
       });
       counter = 0;
