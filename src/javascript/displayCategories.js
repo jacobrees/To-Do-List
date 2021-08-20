@@ -4,22 +4,6 @@ import setTodoSortBtns from './sortTodosCategory.js';
 import { setremoveCategoryBtn, setCurrentCategoryListener } from './categoriesController.js'; // eslint-disable-line
 import { setDeleteCategoryMenu } from './toggleMenus.js';
 
-const Flickity = require('flickity');
-
-const carousel = document.querySelector('.categories-container');
-
-const flktySettings = {
-  contain: false,
-  percentPosition: true,
-  freeScroll: false,
-  watchCSS: true,
-  cellAlign: 'center',
-  prevNextButtons: true,
-  pageDots: false,
-};
-
-let flkty = new Flickity(carousel, flktySettings);
-
 const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
 const editCategoriesContainer = document.querySelector('.edit-categories-btns-container');
@@ -148,7 +132,6 @@ const displayEditCategories = () => {
 };
 
 const displayCategories = () => {
-  flkty.destroy();
   clearCategories();
   displaySortCategories();
   setTodoSortBtns();
@@ -158,7 +141,6 @@ const displayCategories = () => {
   setremoveCategoryBtn();
   setCurrentCategoryListener();
   setDeleteCategoryMenu();
-  flkty = new Flickity(carousel, flktySettings);
 };
 
 export default displayCategories;

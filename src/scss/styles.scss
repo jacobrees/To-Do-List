@@ -1005,21 +1005,6 @@ $slow-fade: all 0.5s ease-in;
     background-color: $white;
     z-index: 11;
     padding: 0;
-
-    &::after {
-      content: 'flickity';
-      display: none;
-    }
-  }
-
-  .flickity-prev-next-button:disabled { display: none; }
-
-  .flickity-button {
-    background: none;
-
-    &:hover {
-      background: none;
-    }
   }
 
   .category {
