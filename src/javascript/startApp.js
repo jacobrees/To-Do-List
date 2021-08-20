@@ -9,11 +9,13 @@ import { setCategoriesController } from './categoriesController.js';
 import { setTodosController } from './todosController.js';
 import { displayAllTodos } from './displayTodos.js';
 import iso from './isotope.js';
+import { setSliderListeners } from './categoriesSlider.js';
 
 const start = () => {
   launchStartScreen();
   startDatabase();
   displayCategories();
+  setSliderListeners();
   setToggleMenus();
   setToggleForms();
   setCloseFlashError();
@@ -22,7 +24,7 @@ const start = () => {
   setTodosController();
   displayAllTodos();
   window.addEventListener('load', () => {
-    iso.arrange({ filter: '*' });
+    iso.layout();
     setTimeout(() => {
       window.scroll({
         top: 0,
