@@ -3,6 +3,7 @@ import setAddTodoMenuCategoryBtns from './addTodoCategoryBtns.js';
 import setTodoSortBtns from './sortTodosCategory.js';
 import { setremoveCategoryBtn, setCurrentCategoryListener } from './categoriesController.js'; // eslint-disable-line
 import { setDeleteCategoryMenu } from './toggleMenus.js';
+import { setSlides } from './categoriesSlider.js';
 
 const categoriesContainer = document.querySelector('.categories-container');
 const addTodoCategoriesContainer = document.querySelector('.add-todo-categories');
@@ -134,6 +135,7 @@ const displayEditCategories = () => {
 const displayCategories = () => {
   clearCategories();
   displaySortCategories();
+  setSlides();
   setTodoSortBtns();
   displayAddTodoCategories();
   setAddTodoMenuCategoryBtns();
