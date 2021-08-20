@@ -24,7 +24,7 @@ const start = () => {
   setTodosController();
   displayAllTodos();
   window.addEventListener('load', () => {
-    iso.arrange({ filter: '*' });
+    iso.layout();
     setTimeout(() => {
       window.scroll({
         top: 0,
