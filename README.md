@@ -8,7 +8,7 @@
 
 # Live Preview
 
-[View Project](https://rawcdn.githack.com/jacobrees/To-Do-List/46344367e760bb9600656d7ab93b950a8b5441e0/dist/index.html)
+[View Project](https://festive-curran-727aff.netlify.app)
 
 # Getting Started
 
