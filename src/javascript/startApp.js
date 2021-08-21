@@ -1,4 +1,4 @@
-import { toggleLoadingScreen, launchStartScreen } from './startScreen.js';
+import { toggleLoadingScreen, launchStartScreen, displayContent } from './startScreen.js';
 import { startDatabase } from './database.js';
 import displayCategories from './displayCategories.js';
 import { setToggleMenus } from './toggleMenus.js';
@@ -29,6 +29,7 @@ const start = () => {
       window.scroll({
         top: 0,
       });
+      displayContent();
       toggleLoadingScreen();
     }, 1800);
   });
