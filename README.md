@@ -8,7 +8,7 @@
 
 # Live Preview
 
-[View Project](https://rawcdn.githack.com/jacobrees/To-Do-List/c96e5d373180cbbe9d717ddc0f7a7704b676c0cb/dist/index.html)
+[View Project](https://rawcdn.githack.com/jacobrees/To-Do-List/10ce032ce42316805fcadfa6dd49a85d9d3aa336/dist/index.html)
 
 # Getting Started
 
