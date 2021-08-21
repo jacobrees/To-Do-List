@@ -16,4 +16,9 @@ const launchStartScreen = () => {
   });
 };
 
-export { toggleLoadingScreen, launchStartScreen };
+const displayContent = () => {
+  const main = document.querySelector('main');
+  main.style.opacity = 1;
+};
+
+export { toggleLoadingScreen, launchStartScreen, displayContent };
