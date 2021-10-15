@@ -89,5 +89,5 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Project inspired by The Odin Project
-- Code linters used within this project have been developed by Microverse
+- Code linters used within this project have been supplied by Microverse
 - Design by [Nada Ishtewi](https://www.behance.net/nsaeooshy)
