@@ -6,7 +6,7 @@
 
 ![](screenshot/screenshot.png)
 
-# Live Preview
+# Live Website
 
 ### [View Website](https://festive-curran-727aff.netlify.app)
 
