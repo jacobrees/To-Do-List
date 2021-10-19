@@ -8,7 +8,7 @@
 
 # Live Preview
 
-[View Project](https://festive-curran-727aff.netlify.app)
+### [View Website](https://festive-curran-727aff.netlify.app)
 
 # Getting Started
 
